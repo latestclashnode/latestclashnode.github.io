@@ -140,8 +140,8 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-6-16-free-ssr-node.htm" title="「6月16日」最高速度20.6M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「6月16日」最高速度20.6M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-6-17-free-node-subscribe-links.htm" title="「6月17日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「6月17日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-16-free-ssr-node.htm" title="「6月16日」最高速度20.6M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「6月16日」最高速度20.6M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -238,6 +238,17 @@
     <script src="/assets/addons/xcblog/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
     <script src="/assets/addons/xcblog/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
     <script src="/assets/addons/xcblog/js/frontend/latestclashnode/main.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
 </body>
 
 </html>
