@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-19367.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目</title>
+        <meta name="description" content="一. 参考文档 vite官方文档 vue3.x官方文档 vue-router4.x官方文档 vuex4.x官方文档 element-ui3.x官方文档 Ant Design Vue2.x官方文档 ax" />
+        <link rel="icon" href="__ADDON__/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                                                <a href="/">
+                                    Latest ClashNode
+                                </a>
+                                                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="#"><span class="menu-text">关于</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="menu-text">联系</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="__ADDON__/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="__1" rel="nofollow"></a>一. 参考文档</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cn.vitejs.dev/guide/"  rel="nofollow">vite官方文档</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v3.cn.vuejs.org/guide/introduction.html#vue-js-%E6%98%AF%E4%BB%80%E4%B9%88"  rel="nofollow">vue3.x官方文档</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://next.router.vuejs.org/zh/introduction.html"  rel="nofollow">vue-router4.x官方文档</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://next.vuex.vuejs.org/zh/index.html"  rel="nofollow">vuex4.x官方文档</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://element-plus.org/#/zh-CN/component/installation"  rel="nofollow">element-ui3.x官方文档</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://element-plus.org/#/zh-CN/component/installation"  rel="nofollow">Ant Design Vue2.x官方文档</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.axios-js.com/"  rel="nofollow">axios文档</a></p> <h2><a id="_vite_17" rel="nofollow"></a>二. vite搭建项目</h2> <ul> <li>安装</li> </ul> <pre><code class="prism language-shell"><span class="token comment"># npm 安装</span><span class="token function">npm</span> init vite@latest<span class="token comment"># yarn 安装</span><span class="token function">yarn</span> create vite<span class="token comment"># 快速安装vue模板项目</span><span class="token function">yarn</span> create vite my-vue-app --template vue<span class="token function">npm</span> init vite@latest my-vue-app -- --template vue</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/f52cb8cf32ca382146420d20b4161899.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <ul> <li>运行</li> </ul> <pre><code class="prism language-shell"><span class="token function">npm</span> run dev<span class="token comment"># or</span><span class="token function">yarn</span> dev</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/c87f65dd4b5f38e774c6fe113d23e564.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <h2><a id="_elementui_47" rel="nofollow"></a>三. 配置element-ui</h2> <ul> <li>下载包</li> </ul> <pre><code class="prism language-shell"><span class="token function">npm</span><span class="token function">install</span> element-plus --save</code></pre> <ul> <li>修改<code>src/main.js</code></li> </ul> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createApp<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token keyword">import</span> ElementPlus<span class="token keyword">from</span><span class="token string">'element-plus'</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token string">'element-plus/lib/theme-chalk/index.css'</span><span class="token punctuation">;</span><span class="token keyword">import</span> App<span class="token keyword">from</span><span class="token string">'./App.vue'</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ElementPlus<span class="token punctuation">)</span> app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></code></pre> <ul> <li>验证是否配置成功</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/e536dfb94d64d24f106efc666aaddd2f.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <p>如果组件要按需引入的话可以参考文档介绍</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/e2980da4a30c215ed6fe79e65937705b.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <h2><a id="_vuerouter_78" rel="nofollow"></a>四. 配置vue-router</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://next.router.vuejs.org/zh/guide/migration/index.html#%E7%A0%B4%E5%9D%8F%E6%80%A7%E5%8F%98%E5%8C%96"  rel="nofollow">从vue2迁移</a></p> <ul> <li>安装</li> </ul> <pre><code class="prism language-shell"><span class="token function">npm</span><span class="token function">install</span> vue-router@4</code></pre> <ul> <li>创建<code>src/router/index.js</code>文件</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/f815500dd76f83f919b81f19005a31cc.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createRouter<span class="token punctuation">,</span> createWebHistory<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue-router'</span><span class="token keyword">const</span> routes<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>     path<span class="token operator">:</span><span class="token string">'/demo'</span><span class="token punctuation">,</span>     name<span class="token operator">:</span><span class="token string">'demo'</span><span class="token punctuation">,</span><span class="token function-variable function">component</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views/demo.vue'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token keyword">const</span> router<span class="token operator">=</span><span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   history<span class="token operator">:</span><span class="token function">createWebHistory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   routes<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">export</span><span class="token keyword">default</span> router</code></pre> <ul> <li>修改<code>main.js</code></li> </ul> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createApp<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token keyword">import</span> ElementPlus<span class="token keyword">from</span><span class="token string">'element-plus'</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token string">'element-plus/lib/theme-chalk/index.css'</span><span class="token punctuation">;</span><span class="token comment">// 引入路由配置</span><span class="token keyword">import</span> router<span class="token keyword">from</span><span class="token string">'./router/index'</span><span class="token keyword">import</span> App<span class="token keyword">from</span><span class="token string">'./App.vue'</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ElementPlus<span class="token punctuation">)</span><span class="token comment">// 注册</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span> app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></code></pre> <ul> <li>修改<code>App.vue</code>添加路由视图</li> </ul> <pre><code class="prism language-vue">&lt;template&gt;   &lt;el-button type="primary"&gt;按钮&lt;/el-button&gt;   &lt;router-view&gt;&lt;/router-view&gt; &lt;/template&gt;  &lt;script&gt; export default {   name: 'app' } &lt;/script&gt;</code></pre> <ul> <li>创建<code>src/views/demo.vue</code>文件</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/3fc391857e0b067d0079c318e3d64db9.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <p>经过以上的过程,访问<code>http://localhost:3000/demo</code> 就可以看到一下界面,表明我们的路由配置成功~</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/c8176d6c189cd0fc62cc2a8b6fb4a546.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <h2><a id="_vuex_152" rel="nofollow"></a>五. 配置vuex</h2> <ul> <li>安装</li> </ul> <pre><code class="prism language-shell"><span class="token function">npm</span><span class="token function">install</span> vuex@next --save</code></pre> <ul> <li>创建<code>src/store/index.js</code>文件</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/b1a7bea3296ba74e797ffdedf14db015.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createStore<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">"vuex"</span><span class="token punctuation">;</span><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>       app<span class="token operator">:</span><span class="token string">'我是app'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   mutations<span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span>   actions<span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">export</span><span class="token keyword">default</span> store</code></pre> <ul> <li>修改<code>src/main.js</code></li> </ul> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createApp<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token keyword">import</span> ElementPlus<span class="token keyword">from</span><span class="token string">'element-plus'</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token string">'element-plus/lib/theme-chalk/index.css'</span><span class="token punctuation">;</span><span class="token keyword">import</span> router<span class="token keyword">from</span><span class="token string">'./router/index'</span><span class="token comment">// 引入文件</span><span class="token keyword">import</span> store<span class="token keyword">from</span><span class="token string">'./store/index'</span><span class="token keyword">import</span> App<span class="token keyword">from</span><span class="token string">'./App.vue'</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ElementPlus<span class="token punctuation">)</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><span class="token comment">// 注册</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span> app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></code></pre> <ul> <li>在<code>App.vue</code>中查看是否配置成功</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/22a71e62207cbb5e42020c8cc2ada154.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <p>能够成功打印测配置成功</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/70007a0aaf47eca33b23cc68f1628116.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <h2><a id="_axios_213" rel="nofollow"></a>六. 配置axios</h2> <ul> <li>安装</li> </ul> <pre><code class="prism language-shell"><span class="token function">npm</span><span class="token function">install</span> axios -S</code></pre> <ul> <li>创建<code>src/utils/request.js</code></li> </ul> <pre><code class="prism language-js"><span class="token keyword">import</span> axios<span class="token keyword">from</span><span class="token string">'axios'</span><span class="token keyword">const</span> services<span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   baseURL<span class="token operator">:</span><span class="token string">'https://api.apiopen.top'</span><span class="token punctuation">,</span>   timeout<span class="token operator">:</span><span class="token number">6000</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment">// 请求拦截</span> services<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token parameter">config</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 在这可以添加一些请求头的逻辑,如配置token</span><span class="token keyword">return</span> config<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token parameter">error</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment">// 响应拦截</span> services<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 在这可以根据实际后台的响应值去进行判断,如code: 0 或者登录失效跳转到登录页等</span><span class="token keyword">return</span> response<span class="token punctuation">.</span>data<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token parameter">error</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">export</span><span class="token keyword">default</span> services</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/0d3b64f9079242845b0d34266b545cb5.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <ul> <li>创建<code>src/api/app.js</code>配置气你跪求方法</li> </ul> <pre><code class="prism language-js"><span class="token keyword">import</span> request<span class="token keyword">from</span><span class="token string">'../utils/request'</span><span class="token keyword">export</span><span class="token keyword">const</span><span class="token function-variable function">send</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>     url<span class="token operator">:</span><span class="token string">'/getJoke'</span><span class="token punctuation">,</span>     method<span class="token operator">:</span><span class="token string">'get'</span><span class="token punctuation">,</span>     params<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>       page<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>       count<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>       type<span class="token operator">:</span><span class="token string">'video'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/4f6eb4f46d8e1b7c5f3e503da5ede3ae.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <ul> <li>在<code>App.vue</code>引入测试</li> </ul> <pre><code class="prism language-js"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>el<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"primary"</span><span class="token operator">&gt;</span>按钮<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">&gt;</span><span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token comment">// 引入请求方法</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> send<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">"./api/app"</span><span class="token punctuation">;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span>   name<span class="token operator">:</span><span class="token string">"app"</span><span class="token punctuation">,</span><span class="token keyword">async</span><span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"store&gt;&gt;&gt;"</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 请求</span><span class="token keyword">const</span> res<span class="token operator">=</span><span class="token keyword">await</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'res&gt;&gt;&gt;'</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> <ul> <li>查看浏览器是否请求成功</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/7a0a4e2153cde3caaec103972d74d082.jpg" alt="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目"></p> <h2><a id="__302" rel="nofollow"></a>七. 总结</h2> <p>经过以上几步就可以搭建一个简单的vue工程化项目,但是实际开发当中肯定不能这么简单,比如别名的配置,这个时候就需要修改<code>vite.config.js</code>去进行别名的配置,还有路由权限的控制以及ui库sass变量的替换等等…</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-18690.htm">DDL —— 数据定义语言</a></p>
+                                        <p>下一个：<a href="/news/article-19368.htm">动物接种疫苗产生的免疫力为什么低 动物接种疫苗产生的免疫力为什么低呢</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-free-subscribe-node.htm" title="「10月19日」最高速度21M/S，2024年V2ray/Clash/SSR/Shadowrocket免费节点订阅链接，高速机场推荐">「10月19日」最高速度21M/S，2024年V2ray/Clash/SSR/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-free-node-subscribe-links.htm" title="「9月11日」最高速度21.8M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接">「9月11日」最高速度21.8M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-clash-node-daily-updates.htm" title="「10月3日」最高速度21.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「10月3日」最高速度21.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-shadowrocket-node.htm" title="「11月18日」最高速度20.6M/S，2024年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「11月18日」最高速度20.6M/S，2024年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-18-free-high-speed-nodes.htm" title="「9月18日」最高速度18.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「9月18日」最高速度18.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-24-free-ssr-subscribe.htm" title="「7月24日」最高速度20.2M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接">「7月24日」最高速度20.2M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-ssr-node.htm" title="「12月1日」最高速度21.8M/S，2024年Clash/Shadowrocket/V2ray/SSR免费节点订阅链接，高速机场推荐">「12月1日」最高速度21.8M/S，2024年Clash/Shadowrocket/V2ray/SSR免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-free-shadowrocket-node.htm" title="「8月18日」最高速度18.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「8月18日」最高速度18.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-11-free-subscribe-node.htm" title="「7月11日」最高速度22.6M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接">「7月11日」最高速度22.6M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-ssr-subscribe.htm" title="「10月31日」最高速度20.1M/S，2024年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐">「10月31日」最高速度20.1M/S，2024年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img href="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                    <ul>
+                                                <li>
+                            <a href="/"><span class="menu-text">首页</span></a>
+                        </li>
+                                                <li>
+                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                        </li>
+                                                <li>
+                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                        </li>
+                                                <li>
+                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                        </li>
+                                                <li>
+                            <a href="#"><span class="menu-text">关于</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="menu-text">联系</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
