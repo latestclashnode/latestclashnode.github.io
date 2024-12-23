@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-29806.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>VUE3 之 使用 Mixin 实现代码的复用 &#8211; 这个系列的教程通俗易懂，适合新手</title>
+        <meta name="description" content="1. 概述 老话说的好：舍得舍得，先舍才能后得。 言归正传，今天我们来聊聊 VUE 中使用 Mixin 实现代码的复用。 2. Mixin 的使用 2.1 不使用 Mixin 的写法  &lt;bod" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                                                <a href="/">
+                                    Latest ClashNode
+                                </a>
+                                                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="#"><span class="menu-text">关于</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="menu-text">联系</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="__ADDON__/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">VUE3 之 使用 Mixin 实现代码的复用 &#8211; 这个系列的教程通俗易懂，适合新手</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p><span style="font-size: 18pt"><strong>1. 概述</strong></span></p> <p>老话说的好：舍得舍得，先舍才能后得。</p> <p>言归正传，今天我们来聊聊 VUE 中使用 Mixin 实现代码的复用。</p> <p><span style="font-size: 18pt"><strong>2. Mixin 的使用</strong></span></p> <p><span style="font-size: 14pt"><strong>2.1 不使用 Mixin 的写法</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">body</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(255, 0, 0, 1)">id</span><span style="color: rgba(0, 0, 255, 1)">="myDiv"</span><span style="color: rgba(0, 0, 255, 1)">&gt;&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">body</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">script</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">     const app</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">=</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)"> Vue.createApp({         data(){</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 255, 1)">return</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)"> {                 num :</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">1</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">             }         },          created() {             console.info(</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">'</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">created</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">'</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">);         },          methods : {             myAdd() {                 console.info(</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">'</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">myAdd</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">'</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">);             }         },          template:`</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&lt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">div</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&gt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&lt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">button @click</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">=</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">"</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">myAdd</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">"</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&gt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">增加</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&lt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">/</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">button&gt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&lt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">div</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&gt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">{{num}}</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&lt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">/</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">div&gt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">&lt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">/</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">div&gt;</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">        `     });     const vm</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">=</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)"> app.mount(</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">"</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">#myDiv</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">"</span><span style="background-color: rgba(245, 245, 245, 1); color: rgba(0, 0, 0, 1)">);</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e8c7fb4feabeef88e7cc6ea6e15f44d3.jpg" alt="VUE3 之 使用 Mixin 实现代码的复用 - 这个系列的教程通俗易懂，适合新手"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0efd18d92a48eda198ec18de4dc2049e.jpg" alt="VUE3 之 使用 Mixin 实现代码的复用 - 这个系列的教程通俗易懂，适合新手"></p> <p>&nbsp;这个例子中，我们使用了之前聊过的 data、生命周期函数 created，method</p> <p><span style="font-size: 14pt"><strong>2.2 在 Mixin 中定义 data</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">   const myMixin = {         data(){             return {                 num : 2,                 count : 1             }         }     }      const app = Vue.createApp({         data(){             return {                 num : 1             }         },         created() {             console.info('created');         },         mixins:[myMixin],             methods : {             myAdd() {                 console.info('myAdd');             }         },         template:`</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">button</span><span style="color: rgba(255, 0, 0, 1)">@click</span><span style="color: rgba(0, 0, 255, 1)">="myAdd"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>增加<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">button</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>{{num}}<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>{{count}}<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 0, 1)">         `     });</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9bbeba267d827d8940b387f13e3f056f.jpg" alt="VUE3 之 使用 Mixin 实现代码的复用 - 这个系列的教程通俗易懂，适合新手"></p> <p>这个例子中，我们在 Mixin 中定义了 data，并在主组件中使用&nbsp;mixins:[myMixin] 引用了 Mixin。</p> <p>并且我们得到了一个结论，组件中的 data 变量比 Mixin 中 data 变量的优先级高，因此 num 最终是 1，而不是 2。</p> <p><span style="font-size: 14pt"><strong>2.3 在 Mixin 中定义生命周期函数</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">    const myMixin = {         data(){             return {                 num : 2,                 count : 1             }         },         created() {             console.info('myMixin created');         },      }</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/31a97f4a1a466c9b3d71239799c74ce3.jpg" alt="VUE3 之 使用 Mixin 实现代码的复用 - 这个系列的教程通俗易懂，适合新手"></p> <p>两个生命周期函数都会执行，Mixin 的先执行，组件中的后执行</p> <p><span style="font-size: 14pt"><strong>2.4&nbsp;在 Mixin 中定义 method</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">    const myMixin = {         data(){             return {                 num : 2,                 count : 1             }         },         created() {             console.info('myMixin created');         },         methods : {             myAdd() {                 console.info('myMixin myAdd');             }         },     }</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7356ee293dcc4bba7918082c4408ca1a.jpg" alt="VUE3 之 使用 Mixin 实现代码的复用 - 这个系列的教程通俗易懂，适合新手"></p> <p>&nbsp;组件中 method 的会覆盖 mixin中的同名 method</p> <p><span style="font-size: 14pt"><strong>2.5 子组件中使用 Mixin</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">    app.component('sub-com', {         mixins:[myMixin],          template: `</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>{{count}}<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 0, 1)">         `     });</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">        template:`</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">button</span><span style="color: rgba(255, 0, 0, 1)">@click</span><span style="color: rgba(0, 0, 255, 1)">="myAdd"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>增加<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">button</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>{{num}}<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">sub-com</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 0, 1)">         `</span></pre> </div> <p>子组件中使用 Mixin，需要在子组件中使用&nbsp;mixins:[myMixin]&nbsp;引用 Mixin，只在主组件中引用 Mixin 是不行的，主组件、子组件都需要引用 Mixin。</p> <p><span style="font-size: 18pt"><strong>3. 综述</strong></span></p> <p>今天聊了一下 VUE3 中使用 Mixin 实现代码的复用，希望可以对大家的工作有所帮助，下一节我们继续讲 Vue 中的高级语法，敬请期待</p> <p>欢迎帮忙点赞、评论、转发、加关注 ：）</p> <p><strong>关注追风人聊Java，这里干货满满，都是实战类技术文章，通俗易懂，轻松上手。</strong></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-29514.htm">宠物医院好评模板100字怎么写的 宠物医院好评模板100字怎么写的啊</a></p>
+                                        <p>下一个：<a href="/news/article-29807.htm">郑州宠物疫苗批发地址（郑州动物疫苗批发地址）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-free-shadowrocket-node.htm" title="「9月28日」最高速度19M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接">「9月28日」最高速度19M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-node-share.htm" title="「12月12日」最高速度18.7M/S，2024年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐">「12月12日」最高速度18.7M/S，2024年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-26282.htm" title="在Java中将预定义的类名用作类或变量名">在Java中将预定义的类名用作类或变量名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-linux-clash-github.htm" title="「11月11日」最高速度22.7M/S，2024年V2ray/SSR/Clash/Shadowrocket免费节点订阅链接，高速机场推荐">「11月11日」最高速度22.7M/S，2024年V2ray/SSR/Clash/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-10-free-node-subscribe-links.htm" title="「7月10日」最高速度20M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接">「7月10日」最高速度20M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-free-node-subscribe-links.htm" title="「8月22日」最高速度21M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「8月22日」最高速度21M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29514.htm" title="宠物医院好评模板100字怎么写的 宠物医院好评模板100字怎么写的啊">宠物医院好评模板100字怎么写的 宠物医院好评模板100字怎么写的啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-8-free-v2ray.htm" title="「7月8日」最高速度19.6M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「7月8日」最高速度19.6M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-17-free-node-subscribe-links.htm" title="「6月17日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「6月17日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26747.htm" title="吉娃娃转让100元左右（吉娃娃市场价格多少钱一只）">吉娃娃转让100元左右（吉娃娃市场价格多少钱一只）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img href="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
