@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-31900.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>企业实战之阿里druid统一监控方案，你了解吗？</title>
+        <meta name="description" content="前言 相信大家对阿里的druid数据库连接池很熟悉了，在国内使用数据库操作的时候，绝大部分都会引用druid。当然今天不是介绍怎么使用druid，而是分析一下druid的监控。我们先来回顾一下drui" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                                                <a href="/">
+                                    Latest ClashNode
+                                </a>
+                                                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="#"><span class="menu-text">关于</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="menu-text">联系</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="__ADDON__/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">企业实战之阿里druid统一监控方案，你了解吗？</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2></h2> <p>前言</p> <p>相信大家对阿里的druid数据库连接池很熟悉了，在国内使用数据库操作的时候，绝大部分都会引用druid。当然今天不是介绍怎么使用druid，而是分析一下druid的监控。我们先来回顾一下druid是什么吧？</p> <h2></h2> <p>简介</p> <p>1、Druid是阿里开源的一个JDBC应用组件， 其包括三部分：</p> <ul> <li> <p>DruidDriver: 代理Driver，能够提供基于Filter－Chain模式的插件体系。</p> </li> <li> <p>DruidDataSource: 高效可管理的数据库连接池。</p> </li> <li> <p>SQLParser: 实用的SQL语法分析</p> </li> </ul> <p>2、通过Druid连接池中间件， 我们可以实现：</p> <ul> <li> <p>可以监控数据库访问性能，Druid内置提供了一个功能强大的StatFilter插件，能够详细统计SQL的执行性能，这对于线上分析数据库访问性能有帮助。</p> </li> <li> <p>替换传统的DBCP和C3P0连接池中间件。Druid提供了一个高效、功能强大、可扩展性好的数据库连接池。</p> </li> <li> <p>数据库密码加密。直接把数据库密码写在配置文件中，容易导致安全问题。DruidDruiver和DruidDataSource都支持PasswordCallback。</p> </li> <li> <p>SQL执行日志，Druid提供了不同的LogFilter，能够支持Common-Logging、Log4j和JdkLog，你可以按需要选择相应的LogFilter，监控你应用的数据库访问情况。</p> </li> <li> <p>扩展JDBC，如果你要对JDBC层有编程的需求，可以通过Druid提供的Filter-Chain机制，很方便编写JDBC层的扩展插件</p> </li> </ul> <h2></h2> <p>监控</p> <p>druid最大的特色就是有相应的监控，可以帮忙我们查看到执行SQL日志，慢SQL语句，执行SQL的性能以及防止SQL注入等功能。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/635139b100adf0b7a1b5ecb5da086d20.jpg"></p> <p>&nbsp; </p> <h2></h2> <p>数据源</p> <p>数据源菜单显示数据库连接池的基本信息，如连接地址、连接类型、最大连接数、最小连接数、初始连接等信息。</p> <p>可通过逻辑连接打开次数、逻辑连接关闭次数来判断系统中是否存在有连接未关闭的情况(正常情况下打开次数和关闭次数应该一致)</p> <h2></h2> <p>SQL监控</p> <p>SQL监控显示系统已执行过的每条SQL语句的执行情况。通过执行数、执行时间、最慢时间、事务中、错误数、最大并发、执行时间分布等统计维度来展现。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/86c46d8095a41eda6b49f31f62374ccc.jpg"></p> <p>&nbsp; </p> <pre></pre> <pre></pre> <p>1、执行数：本条sql语句已执行的次数 2、执行时间：本条sql语句累计执行时间(单位：毫秒) 3、最慢：本条sql语句执行最慢一次的耗时(单位：毫秒) 4、执行时间分布【- - - - - - - -】：这8个 – 分别代表8个耗时区间的次数，从左至右依次是： 0-1毫秒次数、1-10毫秒次数、10-100毫秒次数、100-1000毫秒次数、1-10秒次数、10-100秒次数、100-1000秒次数、大于1000秒次数。</p> <h2></h2> <p>WEB应用</p> <p>主要统计本应用的并发、请求、事务提交、事务回滚等信息，另外统计了本应用在各操作系统上、各浏览器上的访问次数。</p> <h2></h2> <p>SQL防火墙</p> <p>分防御统计、表访问统计、函数调用统计、SQL防御统计-白名单、SQL防御统计-黑名单这几项。其中若是涉嫌SQL注入的SQL语句将被拦截，出现在SQL防御统计-黑名单中</p> <h2></h2> <p>请求URL监控</p> <p>统计了应用中各url的访问次数、请求时间、并发数等信息</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/1e2ff980ec746ceab3c9ea05d2863a00.jpg"></p> <p>编辑切换为居中</p> <p>添加图片注释，不超过 140 字（可选）</p> <h2></h2> <p>Session监控</p> <p>显示应用中session的请求时间、请求次数、最大并发等数据</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/220e6c7b719e719c960a7bfc840b786b.jpg"></p> <p>编辑切换为居中</p> <p>添加图片注释，不超过 140 字（可选）</p> <h2></h2> <p>问题一</p> <p>我们看到了druid监控功能的强大，也发现了一个重大的问题，如图</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/01f681a57d4b89d69d22f782094eb5c5.jpg"></p> <p>编辑切换为居中</p> <p>添加图片注释，不超过 140 字（可选）</p> <p>druid控制台是针对每个实例的，不同的实例就有不同的druid控制台；但在生产环境中，会有多个实例，那监控平台会存在多个，那我们运维/开发人员查看的时候就麻烦了，需要打开多个控制台。不能整体查看监控数据。</p> <p>那怎么解决呢？</p> <h2></h2> <p>源码分析</p> <p>我们先来看一下druid的监控功能是怎么实现的？</p> <p>我们看一下DruidDataSource核心类，里面有一个LogStatsThread线程</p> <pre></pre> <pre></pre> <p>private LogStatsThread logStatsThread;</p> <p>在DruidDataSource初始化init方法中，调用了createAndLogThread方法，再看一下createAndLogThread这个方法，在timeBetweenLogStatsMillis属性大于0的时候就实例化LogStatsThread线程。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/1916bbff4cd53d281278623332e43c88.jpg"></p> <p>编辑切换为居中</p> <p>添加图片注释，不超过 140 字（可选）</p> <p>再来看一下LogStatsThread线程做了什么</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/f3b0187bdaca548351e31a84cd33fa2a.jpg"></p> <p>编辑切换为居中</p> <p>添加图片注释，不超过 140 字（可选）</p> <p>LogStatsThread线程一直循环调用logStats方法，每次sleep睡眠timeBetweenLogStatsMillis毫秒。那我们就知道这个参数的本质就是每隔多少毫秒去执行logStats方法。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/c50c3f1a9942cdeab9d13bc60ebd4a24.jpg"></p> <p>编辑切换为居中</p> <p>添加图片注释，不超过 140 字（可选）</p> <p>上面的代码表示，数据监控是存在DruidDataSourceStatValue实例里面，然后statLogger对象进行记录。到底存放到哪里，就由statLogger决定。</p> <p>druid默认的DruidDataSourceStatLogger接口实现 DruidDataSourceStatLoggerImpl，</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/29a1b0abd0efb1c78f433246c65a3eba.jpg"></p> <p>&nbsp; </p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/a8e6ec77a9c8e97b2a4281df41a9f947.jpg"></p> <p>&nbsp; </p> <p>可以看到Druid是以Json形式进行日志输出的，具体的数据处理在log(DruidDataSourceStatValue)方法中进行，这个方法也是后续我们需要用到的。</p> <h2></h2> <p>方案一</p> <p>Druid默认的持久化方式是进行文件记录，如果我们想要自定义监控记录的持久化方式则需要自定义StatLogger，参考以上StatLogger的默认实现，我们可以定义一个简单的StatLogger，如下所示：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/b8878fbd89866c12cb2843595d1295a7.jpg"></p> <p>）</p> <p>在这里，我们重写了log(DruidDataSourceStatValue)方法，一个简单的StatLogger就定制完成了，下面需要在dataSource中配置这个statLogger，我们在配置文件中druid节点下加上如下配置：</p> <pre></pre> <pre></pre> <p>time-between-log-stats-millis: 60000 stat-logger:</p> <p>配置过程中发现 stat-logger 对应的是一个 DruidDataSourceStatLoggerAdapter对象，而yml配置文件中仅支持基本数据类型和Map、List等类型，查看源码可以发现，在DruidAbstractDataSource类中有如下定义：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/bbc75a0748e3c31ee99a4a61616631c8.jpg"></p> <p>&nbsp; </p> <p>支持直接设置statLogger对象和通过类名设置两种方式，回到配置文件中发现没有类名的这个配置项，如下：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/35173b3f8307f523aaa7217ca737be04.jpg"></p> <p>&nbsp; </p> <p>既然通过配置文件不能够直接配置，那么我们就以配置类的方式来配置Druid数据源，新建一个Druid的配置类，如下所示：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/9faff5b66a6e0496279cefb185efe673.jpg"></p> <p>&nbsp; </p> <p>其中@ConfigurationProperties表示配置的属性，这里会将配置文件中以spring.datasource.druid为前缀的值映射到DataSource对象的同名属性上，在这个方法中，我们将DatSource的statLogger设置为我们自定义的StatLogger。</p> <p>这样配置之后，我们就可以看到每隔10秒会做监控数据的持久化了。</p> <h2></h2> <p>问题二</p> <p>我们再仔细看一下上面的方案，如图</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/fd47ee747bbefb8ad41d9bf2cbe76b0c.jpg"></p> <p>&nbsp; </p> <p>上面的方案会有一些问题</p> <blockquote> <p>1、如果持久化数据库挂了，就会导致监控数据会丢失 2、在很多实例的时候，都会给数据库进行提交监控数据；会产生高并发问题 3、druid组件和监控持久化有一定耦合关系了。监控持久化业务异常就有可能会影响到druid</p> </blockquote> <p>怎么解决呢？我们再回来看看druid之前的监控数据方案，druid默认把监控数据记录下日志文件中，这个方案其实已经把监控数据持久化到磁盘上面了，只是日志文件是保存在每个服务实例上面的。那是不是我们只要把这些日志都收集起来，保存到某处，这样是不是也就可以了？</p> <h2></h2> <p>方案二</p> <p>我们来调整一下方案</p> <blockquote> <p>这个方案涉及到大数据方面的知识点了，其实也不是太难，大家只要理解架构思路就行了</p> </blockquote> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/6c1d512fbb6f1258e4f48fbcfbe47167.jpg"></p> <p>&nbsp; </p> <p>如上核心思想就是采集日志文件，然后把日志数据发送到消息中间件kafka（这样就起到了削峰作用）；再独立开发个持久化服务订阅kafka消息，做持久化业务。</p> <blockquote> <p>这个方案就解决了之前方案一的问题，又能抗高并发，又能解耦合</p> </blockquote> <p>方案中有个Flume组件，他的作用就是用来采集文件，然后同步到各个地方，常用到的就是同步到kafka中。</p> <p>现在大多数Druid配置都是log4j作为logger，但是logback作为新一代的日志框架，我们有理由使用logback配置Druid Filter，之前的配置是：</p> <pre></pre> <pre></pre> <p>dataSourceA.filters=stat,wall,log4j</p> <p>Druid支持配置多种Filter，配置信息保存在druid-xxx.jar! /META-INF/druid-filter.properties下面，具体如下：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221229/c24aece4d251fe362c34edbc8bcccf88.jpg"></p> <p>&nbsp; </p> <p>我们知道，logback是slf4j的实现类，按照规定格式，改成下面就可以了：</p> <pre></pre> <pre></pre> <p>dataSourceA.filters=stat,wall,slf4j</p> <p>具体logback的配置，这里就不介绍了。</p> <h2></h2> <p>总结</p> <p>本文介绍了druid的监控数据的统一化管理，可以方便我们开发运维进行监控，虽然我们已经把监控数据都进行了采集，那怎么在界面上面显示，这个就需要报表可视化的方案了，有时间老顾会给大家介绍，谢谢！！！</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-31321.htm">回到明朝当王爷之杨凌传杨凌最爱谁（杨凌传）原创，</a></p>
+                                        <p>下一个：<a href="/news/article-31902.htm">郑州宠物疫苗批发地址（郑州动物疫苗批发地址）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-clash-node-daily-updates.htm" title="「11月14日」最高速度22.5M/S，2024年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「11月14日」最高速度22.5M/S，2024年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-clash-node.htm" title="「11月5日」最高速度21.3M/S，2024年Clash/SSR/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「11月5日」最高速度21.3M/S，2024年Clash/SSR/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-20281.htm" title="Springboot如何同时连接两个数据库">Springboot如何同时连接两个数据库</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-clash-v2ray-ss-ssr.htm" title="「11月2日」最高速度20.6M/S，2024年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「11月2日」最高速度20.6M/S，2024年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-23946.htm" title="宠物粮厂得投资多少钱啊知乎文章（宠物粮食加工厂）">宠物粮厂得投资多少钱啊知乎文章（宠物粮食加工厂）</a></li>
+                        <li class="py-2"><a href="/news/article-31902.htm" title="郑州宠物疫苗批发地址（郑州动物疫苗批发地址）">郑州宠物疫苗批发地址（郑州动物疫苗批发地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-node-share.htm" title="「9月9日」最高速度21.6M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接">「9月9日」最高速度21.6M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26746.htm" title="vue3中 setup注意点">vue3中 setup注意点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-24-free-clash.htm" title="「6月24日」最高速度21.1M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅链接">「6月24日」最高速度21.1M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-high-speed-nodes.htm" title="「8月25日」最高速度22.9M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接">「8月25日」最高速度22.9M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img href="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
