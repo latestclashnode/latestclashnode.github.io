@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-37655.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>图解：冒泡排序及其优化</title>
+        <meta name="description" content="一、什么是冒泡排序？  冒泡排序（Bubble sort）,是一种较简单的排序算法。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端（升序或降序排列），就如同碳酸饮料中二氧化碳的气泡" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                                                <a href="/">
+                                    Latest ClashNode
+                                </a>
+                                                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="#"><span class="menu-text">关于</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="menu-text">联系</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="__ADDON__/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">图解：冒泡排序及其优化</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3>一、什么是冒泡排序？</h3> <blockquote> <p><span style="color:#0d0016;"></span><span style="color:#fe2c24;">冒泡排序</span><span style="color:#0d0016;">（Bubble sort）,</span>是一种较简单的排序算法。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端（升序或降序排列），就如同碳酸饮料中二氧化碳的气泡最终会上浮到顶端一样，故名“冒泡排序”。（PS：来源百度百科）</p> </blockquote> <p style="text-align:center;"></p> <h3 id="%C2%A0%E4%BA%8C%E3%80%81%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86">&nbsp;二、算法原理（升序）</h3> <ul> <li>&nbsp;1、比较相邻的两个元素。若第一个比第二个大，交换位置，反之位置不变。</li> <li>&nbsp;2、交换位置后，再与后面的一个两两比较。</li> <li>&nbsp;3、针对所有元素重复以上动作，最后一个除外。</li> </ul> <p>&nbsp;举例来说：<span style="color:#fe2c24;">36,26,27,2,4,19,50,48</span>来说，会有多趟排序（size - 1），每一趟要排多次（size - k）,<strong>这里列举出第一趟：</strong></p> <p style="text-align:center;"><img fetchpriority="high" decoding="async" alt="" height="470" src="http://img.555519.xyz/uploads/20221120/04c3b3ce58a8095be68a2f11346d054c.jpg"></p> <p><strong>多趟排序的后的结果总结是这样的：</strong></p> <p style="text-align:center;"><img decoding="async" alt="" height="481" src="http://img.555519.xyz/uploads/20221120/4af4d55dd1fd151898511fafd9c7a3d1.jpg"></p> <blockquote> <p>PS：这里留下一个思考，图里留了一个<span style="color:#fe2c24;"><strong>注意</strong></span>字样，在这里数组已经排序好了，但是还是会依次比较，你能想到什么方法优化吗？</p> </blockquote> <p><strong>它的动态执行过程如下动图所示：</strong></p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221120/6fdf238c7942d28f7806ab2b6a8d199c.jpg"></p> <p>PS：此动图来源于网络。</p> <table align="center" border="1" cellpadding="1" cellspacing="1" style="width:700px;"> <thead> <tr> <th style="width:156px;">&nbsp; &nbsp;最坏时间复杂度</th> <th style="width:175px;">&nbsp; &nbsp; &nbsp; &nbsp; 最好时间复杂度</th> <th style="width:203px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;空间复杂度</th> <th style="width:165px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 是否稳定</th> </tr> </thead> <tbody> <tr> <td style="width:156px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; O(n^2)</td> <td style="width:175px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; O(n)</td> <td style="width:203px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;O(1)</td> <td style="width:165px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 稳定</td> </tr> </tbody> </table> <h3>三、代码实现</h3> <pre><code class="language-java">public class BubbleSort {     public static void main(String[] args) {         // 直接定义一个数组         int[] nums = {36,26,27,2,4,19,50,48};         System.out.println("排序前的数组：" + Arrays.toString(nums));         sort(nums);         System.out.println("排序前的数组：" + Arrays.toString(nums));     }      /*     * 对数组进行冒泡排序     *     * @param nums 需要排序的数组     * */     private static void sort(int[] nums) {         // 数组长度 len         int len = nums.length;         // 临时变量 temp         int temp = 0;         // 外层循环控制排序趟数，len个进行len - 1趟         for (int i = 0; i &lt; len - 1; i++) {             System.out.println("第"+ (i + 1) +"趟：");             // 内层循环控制比较的次数，第i趟比较i-1次             for (int j = 0; j &lt; len - 1 - i; j++) {                 // 比较相邻的两个元素，若前面的数字大于后面的，交换位置                 if (nums[j] &gt; nums[j+1]) {                     temp = nums[j+1];                     nums[j+1] = nums[j];                     nums[j] = temp;                 }              System.out.println("    "+"第"+ (j + 1) +"次：" + Arrays.toString(nums));             }         }     } }</code></pre> <blockquote> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这里插一嘴，想起来自己刚接触冒泡排序的时候，感觉那个时候的自己就是一个菜逼，哈哈哈哈哈，不理解两个for的意义，写了好几遍之后还是不理解，似懂非懂。对了，当时还对交换数据位置哪里每次写都要纠结好久，想着怎么交换呀，拿笔在纸上比划半年，才写出来，后来找到了一个小技巧：<strong>起手临时变量，中间半交叉，收尾临时变量。</strong>仅供参考，大佬勿喷（小声BB）</p> </blockquote> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221120/6cb6562a8c84e2d15ecfde6563da5b50.jpg"></p> <p><strong>输出的结果：</strong></p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221120/c708780228fbca99548b7cb22864bfdf.jpg"></p> <blockquote> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从运行的结果可以看出，从红色标记开始，后面的排序的已经是有序的，但是代码还是要往后面执行，因此说明代码是可以进行优化，这里你可以思考一下怎么去优化这个问题。</p> </blockquote> <h3>4、优化：</h3> <blockquote> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增加一个标志位，当每次发生交换的时候，就进行标记，如果没有发生交换，不标记，也就是说此时数组已经有序，直接跳出循环，于此同时再记录一下最后一次交换元素的位置，即可完成对这个排序的优化。</p> </blockquote> <p><strong>代码如下所示：</strong></p> <pre><code class="language-java">public class BubbleSort {     public static void main(String[] args) {         // 直接定义一个数组         int[] nums = {36,26,27,2,4,19,50,48};         System.out.println("排序前的数组：" + Arrays.toString(nums));         sort(nums);         System.out.println("排序前的数组：" + Arrays.toString(nums));     }      /*      * 对数组进行冒泡排序      *      * @param nums 需要排序的数组      * */     private static void sort(int[] nums) {         // 数组长度 len         int len = nums.length - 1;         // 记录最后一个交换的位置         int pos = 0;         // 临时变量 temp         int temp = 0;         // 外层循环控制排序趟数，len个进行len - 1趟         for (int i = 0; i &lt; nums.length - 1; i++) {             System.out.println("第" + (i + 1) + "趟：");             // 标记位             boolean flag = true;             // 内层循环控制比较的次数，第i趟比较i-1次             for (int j = 0; j &lt; len; j++) {                 // 比较相邻的两个元素，若前面的数字大于后面的，交换位置                 if (nums[j] &gt; nums[j + 1]) {                     temp = nums[j + 1];                     nums[j + 1] = nums[j];                     nums[j] = temp;                     // 如果能走到这里说明有有元素交换，还不是有序的，标记为false                     flag = false;                     // 最后一次交换元素的位置                     pos = j;                 }                 System.out.println("    第" + (j + 1) + "次：" + Arrays.toString(nums));             }             // 如果没有元素交换，直接跳出循环             if (flag) {                 break;             }             // 把最后一次交换元素的位置赋值给len,即下一次比较到记录位置             len = pos;         }     } }</code></pre> <p><strong>输出的结果：</strong></p> <h3 style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221120/a554697111029592bb2c68094d0af4a6.jpg"></h3> <blockquote> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于优化这块，我觉得并不具备普遍性，如果是在最坏的时间复杂度的情况下，优化与不优化输出的结果都是一样的，所以我们只需要了解冒泡的思想即可。另外加标志位这个思想在实际的开发中也很常用，需要我们多多思考。</p> </blockquote> <hr/> <p><strong>水平有限，写的不好的地方，希望大家指出。如果你感觉这篇文章对你有帮助，点赞支持一下</strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37179.htm">宠物领养协议范本图片（宠物领养协议是否有法律效力）</a></p>
+                                        <p>下一个：<a href="/news/article-37656.htm">符合动物医院法定条件有哪些内容要求（动物医院资质级别有哪些）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-22572.htm" title="宠康宠物诊所（宠康宠物诊所怎么样）">宠康宠物诊所（宠康宠物诊所怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-35482.htm" title="2019国产放心狗粮推荐（国产十大放心狗粮）">2019国产放心狗粮推荐（国产十大放心狗粮）</a></li>
+                        <li class="py-2"><a href="/news/article-20740.htm" title="开宠物食品店赚钱吗 开宠物食品店赚钱吗现在">开宠物食品店赚钱吗 开宠物食品店赚钱吗现在</a></li>
+                        <li class="py-2"><a href="/news/article-20738.htm" title="哪些属相不能养狗狗（什么属相不适合养狗狗）">哪些属相不能养狗狗（什么属相不适合养狗狗）</a></li>
+                        <li class="py-2"><a href="/news/article-34770.htm" title="宠物粮食生意怎么样赚钱的呢（宠物粮食利润大吗）">宠物粮食生意怎么样赚钱的呢（宠物粮食利润大吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-clash-windows.htm" title="「12月9日」最高速度22.9M/S，2024年Shadowrocket/SSR/V2ray/Clash免费节点订阅链接，高速机场推荐">「12月9日」最高速度22.9M/S，2024年Shadowrocket/SSR/V2ray/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-node-subscribe-links.htm" title="「11月21日」最高速度20.4M/S，2024年V2ray/Shadowrocket/Clash/SSR免费节点订阅链接，高速机场推荐">「11月21日」最高速度20.4M/S，2024年V2ray/Shadowrocket/Clash/SSR免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-32385.htm" title="厦门领养宠物 厦门领养宠物中心">厦门领养宠物 厦门领养宠物中心</a></li>
+                        <li class="py-2"><a href="/news/article-29806.htm" title="VUE3 之 使用 Mixin 实现代码的复用 &#8211; 这个系列的教程通俗易懂，适合新手">VUE3 之 使用 Mixin 实现代码的复用 &#8211; 这个系列的教程通俗易懂，适合新手</a></li>
+                        <li class="py-2"><a href="/news/article-38142.htm" title="动物诊疗许可证管理办法规定（动物诊疗许可证有效期哪里规定的）">动物诊疗许可证管理办法规定（动物诊疗许可证有效期哪里规定的）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img href="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
