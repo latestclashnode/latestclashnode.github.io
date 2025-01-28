@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-47560.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>设计模式之六大原则——接口隔离原则（ISP）</title>
+        <meta name="description" content="接口隔离原则 Interface Segregation Principle&nbsp;  定义：  客户端不应该依赖它不需要的接口 类间的依赖关系应该建立在最小的接口上  我们可以把这两个定义概括为" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-47560.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="设计模式之六大原则——接口隔离原则（ISP）" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/dec2220d0c8f3c8f3a684a68292c3b98.webp" />
+        <meta property="og:release_date" content="2025-01-28T09:33:55" />
+    <meta property="og:updated_time" content="2025-01-28T09:33:55" />
+        <meta property="og:description" content="接口隔离原则 Interface Segregation Principle&nbsp;  定义：  客户端不应该依赖它不需要的接口 类间的依赖关系应该建立在最小的接口上  我们可以把这两个定义概括为" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="设计模式之六大原则——接口隔离原则（ISP）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                                                <a href="/">
+                                    Latest ClashNode
+                                </a>
+                                                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="#"><span class="menu-text">关于</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="menu-text">联系</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">设计模式之六大原则——接口隔离原则（ISP）</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <p>接口隔离原则 Interface Segregation Principle<strong>&nbsp;</strong></p> <p><strong><br /></strong></p> <p><strong>定义：</strong></p> <ul> <li>客户端不应该依赖它不需要的接口</li> <li>类间的依赖关系应该建立在最小的接口上</li> </ul> <p>我们可以把这两个定义概括为一句话：建立单一接口，不要建立臃肿庞大的接口。再通俗一点讲：接口尽量细化，同时接口中的方法尽量少。</p> <p>提供给每个模块的都应该是单一接口，提供给几个模块就应该有几个接口，而不是建立一个庞大的臃肿的接口，容纳所有的客户端访问。</p> <p>&nbsp;</p> <p>接口是我们设计时对外提供的契约，通过分散定义多个接口，可以预防未来变更的扩散，提高系统的灵活性和可维护性。</p> <p>&nbsp;</p> <p><strong>含义：</strong></p> <ul> <li>接口要尽量小</li> </ul> <p>这是接口隔离原则的核心定义，不出现臃肿的接口（Fat Interface），但是“小”是有限度的，首先就是不能违反单一职责原则。</p> <p><strong>根据接口隔离原则拆分接口时，首先必须满足单一职责原则。</strong></p> <ul> <li>接口要高内聚</li> </ul> <p>高内聚就是要提高接口、类、模块的处理能力，减少对外的交互。</p> <p>具体到接口隔离原则就是，要求在接口中尽量少公布public方法，接口是对外的承诺，承诺地越少对系统开发越有利，变更的风险也就越少，同时也有利于降低成本。</p> <ul> <li>定制服务</li> </ul> <p>定制服务就是单独为一个个体提供优良的服务。</p> <ul> <li>接口设计是有限度的</li> </ul> <p>接口的设计粒度越小，系统越灵活，这是不争的事实。但是，灵活的同时也带来了结构的复杂化，开发难度增加，可维护性降低，这不是一个项目或产品所期望看到的，所以接口设计一定要注意适度，这个度只能根据经验和常识判断，没有一个固化或可测量的标准。</p> </div> <p>转载于:https://www.cnblogs.com/muzongyan/archive/2010/08/04/1792528.html</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-47075.htm">猫打疫苗一共打几针要多少钱 猫打疫苗一共打几针要多少钱一针</a></p>
+                                        <p>下一个：<a href="/news/article-47561.htm">宠物领养网站设计参考文献怎么写好（宠物领养网站html模板）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-v2ray.htm" title="「1月2日」最高速度22.7M/S，2025年V2ray/SSR/Clash/Shadowrocket免费节点订阅链接，高速机场推荐">「1月2日」最高速度22.7M/S，2025年V2ray/SSR/Clash/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-clash.htm" title="「1月15日」最高速度22.7M/S，2025年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐">「1月15日」最高速度22.7M/S，2025年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-clash.htm" title="「1月13日」最高速度18.4M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐">「1月13日」最高速度18.4M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-free-subscribe-node.htm" title="「10月19日」最高速度21M/S，2024年V2ray/Clash/SSR/Shadowrocket免费节点订阅链接，高速机场推荐">「10月19日」最高速度21M/S，2024年V2ray/Clash/SSR/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-34770.htm" title="宠物粮食生意怎么样赚钱的呢（宠物粮食利润大吗）">宠物粮食生意怎么样赚钱的呢（宠物粮食利润大吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-clash-node.htm" title="「1月3日」最高速度19.8M/S，2025年V2ray/Shadowrocket/SSR/Clash免费节点订阅链接，高速机场推荐">「1月3日」最高速度19.8M/S，2025年V2ray/Shadowrocket/SSR/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-clash-node-daily-updates.htm" title="「12月14日」最高速度21.1M/S，2024年Clash/SSR/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「12月14日」最高速度21.1M/S，2024年Clash/SSR/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-clash-node-daily-updates.htm" title="「1月7日」最高速度22.4M/S，2025年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐">「1月7日」最高速度22.4M/S，2025年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-clash-windows.htm" title="「11月7日」最高速度22.3M/S，2024年Clash/Shadowrocket/SSR/V2ray免费节点订阅链接，高速机场推荐">「11月7日」最高速度22.3M/S，2024年Clash/Shadowrocket/SSR/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-19821.htm" title="吉泰动物医院怎么样知乎（吉泰宠物医院电话）">吉泰动物医院怎么样知乎（吉泰宠物医院电话）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img href="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
