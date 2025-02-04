@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-51092.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>深入理解 Go 中的字符串_Golang</title>
+        <meta name="description" content="目录  字符串的本质 字符串的底层原理    字符串的本质 在编程语言中，字符串发挥着重要的角色。字符串背后的数据结构一般有两种类型：  一种在编译时指定长度，不能修改 一种具有动态的长度，可以修改。" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-51092.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="深入理解 Go 中的字符串_Golang" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/79c71738c504422201e942e628aea6e1.webp" />
+        <meta property="og:release_date" content="2025-02-04T00:29:58" />
+    <meta property="og:updated_time" content="2025-02-04T00:29:58" />
+        <meta property="og:description" content="目录  字符串的本质 字符串的底层原理    字符串的本质 在编程语言中，字符串发挥着重要的角色。字符串背后的数据结构一般有两种类型：  一种在编译时指定长度，不能修改 一种具有动态的长度，可以修改。" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="深入理解 Go 中的字符串_Golang">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="#"><span class="menu-text">关于</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="menu-text">联系</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">深入理解 Go 中的字符串_Golang</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">字符串的本质</a></li> <li><a href="#_label1" rel="nofollow">字符串的底层原理</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>字符串的本质</h2> <p>在编程语言中，字符串发挥着重要的角色。<strong>字符串背后的数据结构一般有两种类型：</strong></p> <ul> <li>一种在编译时指定长度，不能修改</li> <li>一种具有动态的长度，可以修改。</li> </ul> <p><strong>比如：</strong>与Python 中的字符串一样，Go 语言中的字符串不能被修改，只能被访问。<br />在 Python 中，<strong>如果改变一个字符串的值会得到如下结果：</strong></p> <div class="ay1code"> <pre class="brush:go;">&gt;&gt;&gt; hi = "Hello"  &gt;&gt;&gt; hi  'Hello'  &gt;&gt;&gt; hi[0] = 'h'  Traceback (most recent call last):  File "&lt;stdin&gt;", line 1, in &lt;module&gt;  TypeError: 'str' object does not support item assignment  &gt;&gt;&gt;</pre> </div> <p><strong>同理，在 Go 中也一样：</strong></p> <div class="ay1code"> <pre class="brush:go;">package main  import "fmt"  func main() {  var hello = "Hello"  hello[1] = 'h'  fmt.Println(hello)  }  // # command-line-arguments  // string_in_go/main.go:8:11: cannot assign to hello[1] (strings are immutable)</pre> </div> <p><strong>字符串的终止方式有两种：</strong></p> <ul> <li>一种是 C 语言的隐式声明，以字符 “\0” 作为终止符</li> <li>一种是 Go 语言的显式声明</li> </ul> <p><strong>Go 语言的 string 的表示结构如下：</strong></p> <div class="ay1code"> <pre class="brush:go;">type StringHeader struct {  Data uintptr // Data 指向底层的字符数组  Len int // Len 用来表示字符串的长度  }</pre> </div> <p>字符串的<strong>本质</strong>上是一串字符数组，每个字符都在存储时对应了一个或多个整数。用这些整数来表示字符，比如打印 <code>hello</code> 的字节数组如下：</p> <div class="ay1code"> <pre class="brush:go;">package main  import "fmt"  func main() {  var hello = "Hello"  for i := 0; i &lt; len(hello); i++ {  fmt.Printf("%x ", hello[i])  }  }  // Output: 48 65 6c 6c 6f</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>字符串的底层原理</h2> <p><strong>字符串有特殊标识，有两种声明方式：</strong></p> <blockquote> <p>var s1 string = `hello world`<br />var s2 string = "hello world"</p> </blockquote> <p>字符串常量在词法解析阶段最终会被标记为 StringLit 类型的 Token 并被传递到编译的下一个阶段。<br />在语法分析阶段，采取递归下降的方式读取 UTF-8 字符，单撇号或双引号是字符串的标识。</p> <p><strong>分析的逻辑位于  syntax/scanner.go 文件中:</strong></p> <div class="ay1code"> <pre class="brush:go;">func (s *scanner) stdString() {  ok := true  s.nextch()  for {  if s.ch == '"' {  s.nextch()  break  }  if s.ch == '\\' {  s.nextch()  if !s.escape('"') {  ok = false  }  continue  }  if s.ch == '\n' {  s.errorf("newline in string")  ok = false  break  }  if s.ch &lt; 0 {  s.errorAtf(0, "string not terminated")  ok = false  break  }  s.nextch()  }  s.setLit(StringLit, ok)  }  func (s *scanner) rawString() {  ok := true  s.nextch()  for {  if s.ch == '`' {  s.nextch()  break  }  if s.ch &lt; 0 {  s.errorAtf(0, "string not terminated")  ok = false  break  }  s.nextch()  }  // We leave CRs in the string since they are part of the  // literal (even though they are not part of the literal  // value).  s.setLit(StringLit, ok)  }</pre> </div> <p>从上面的代码可以看到，Go 中有两种字符串的检查：一种是标准字符串以双引号定义 <code>""</code>，如 <code>"Hello,World"</code>, 还有一种是原始字符串，用 \<code>\</code> 定义的， 因此针对两种字符串有两种语法分析函数：</p> <ul> <li>如果是单撇号，则调用 <code>rawString </code>函数</li> <li>如果是双引号，则调用 <code>stdString</code> 函数</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50592.htm">spring中jdbcTemplate.batchUpdate的几种使用情况_java</a></p>
+                                        <p>下一个：<a href="/news/article-51093.htm">动物疫苗接种证图片 动物疫苗接种证图片大全</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-shadowrocket-node.htm" title="「1月17日」最高速度18.1M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐">「1月17日」最高速度18.1M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-34770.htm" title="宠物粮食生意怎么样赚钱的呢（宠物粮食利润大吗）">宠物粮食生意怎么样赚钱的呢（宠物粮食利润大吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-clash-windows.htm" title="「11月13日」最高速度23M/S，2024年V2ray/Shadowrocket/SSR/Clash免费节点订阅链接，高速机场推荐">「11月13日」最高速度23M/S，2024年V2ray/Shadowrocket/SSR/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-40130.htm" title="jackson在springboot中的使用-自定义参数转换器">jackson在springboot中的使用-自定义参数转换器</a></li>
+                        <li class="py-2"><a href="/news/article-42115.htm" title="动物疫苗销售存在哪些问题及对策（动物疫苗销售存在哪些问题及对策建议）">动物疫苗销售存在哪些问题及对策（动物疫苗销售存在哪些问题及对策建议）</a></li>
+                        <li class="py-2"><a href="/news/article-25819.htm" title="广州猫咪领养中心地址查询（广州猫咪领养中心地址查询电话）">广州猫咪领养中心地址查询（广州猫咪领养中心地址查询电话）</a></li>
+                        <li class="py-2"><a href="/news/article-43111.htm" title="宠物哪里可以领养（宠物在哪可以领养）">宠物哪里可以领养（宠物在哪可以领养）</a></li>
+                        <li class="py-2"><a href="/news/article-34293.htm" title="动物疫苗经营许可证申办（动物疫苗经营许可证申办流程）">动物疫苗经营许可证申办（动物疫苗经营许可证申办流程）</a></li>
+                        <li class="py-2"><a href="/news/article-41114.htm" title="@DateTimeFormat与@JsonFormat和value-format">@DateTimeFormat与@JsonFormat和value-format</a></li>
+                        <li class="py-2"><a href="/news/article-23032.htm" title="宠物领养软件下载安装 宠物领养软件下载安装免费">宠物领养软件下载安装 宠物领养软件下载安装免费</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
