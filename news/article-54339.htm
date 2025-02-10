@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-54339.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Springboot 连接 Mysql</title>
+        <meta name="description" content="一、安装mysql mysql8.0安装+配置教程  二、pom.xml配置 		&lt;!--集成mysql数据库--&gt; 		&lt;dependency&gt;             &l" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-54339.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="Springboot 连接 Mysql" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/c2e79f4717cf81fdc155047e326ec6bc.webp" />
+        <meta property="og:release_date" content="2025-02-10T07:39:08" />
+    <meta property="og:updated_time" content="2025-02-10T07:39:08" />
+        <meta property="og:description" content="一、安装mysql mysql8.0安装+配置教程  二、pom.xml配置 		&lt;!--集成mysql数据库--&gt; 		&lt;dependency&gt;             &l" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot 连接 Mysql">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">Springboot 连接 Mysql</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h2> <a id="mysql_0" rel="nofollow"></a>一、安装mysql</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://t.csdn.cn/rJ2Ud"  rel="nofollow">mysql8.0安装+配置教程</a><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/6266619760e559e4ec315abf81d76e36.jpg" alt="Springboot 连接 Mysql"></p> <h2> <a id="pomxml_5" rel="nofollow"></a>二、pom.xml配置</h2> <pre><code class="prism language-java">		<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>集成mysql数据库<span class="token operator">--</span><span class="token operator">&gt;</span> 		<span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span>             <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>mysql<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>             <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>mysql<span class="token operator">-</span>connector<span class="token operator">-</span>java<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>             <span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">8.0</span><span class="token number">.30</span><span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>$NO<span class="token operator">-</span>MVN<span class="token operator">-</span>MAN<span class="token operator">-</span>VER$<span class="token operator">--</span><span class="token operator">&gt;</span>             <span class="token generics"><span class="token punctuation">&lt;</span>scope<span class="token punctuation">&gt;</span></span>runtime<span class="token operator">&lt;</span><span class="token operator">/</span>scope<span class="token operator">&gt;</span>         <span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span>  		<span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span> 		    <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span> 		    <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>spring<span class="token operator">-</span>boot<span class="token operator">-</span>starter<span class="token operator">-</span>jdbc<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span> 		 		<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>lombok注解简化代码<span class="token operator">--</span><span class="token operator">&gt;</span> 		<span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span> 		    <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>org<span class="token punctuation">.</span>projectlombok<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span> 		    <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>lombok<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span> 		<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span>  </code></pre> <h2> <a id="application_properties_28" rel="nofollow"></a>三、application. properties</h2> <pre><code class="prism language-java">		spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>driverClassName<span class="token operator">=</span><span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>mysql<span class="token punctuation">.</span>cj<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span></span>Driver</span> 		spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>url<span class="token operator">=</span>jdbc<span class="token operator">:</span>mysql<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">3306</span><span class="token operator">/</span>mysql<span class="token operator">?</span>useSSL<span class="token operator">=</span><span class="token boolean">false</span><span class="token operator">&amp;</span>useUnicode<span class="token operator">=</span><span class="token boolean">true</span><span class="token operator">&amp;</span>characterEncoding<span class="token operator">=</span>utf<span class="token operator">-</span><span class="token number">8</span> 		spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>username<span class="token operator">=</span>root 		spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>password<span class="token operator">=</span>root </code></pre> <p>spring.datasource.url=jdbc: <font color="red" size="3"><strong>mysql</strong></font>: //localhost:3306/mysql?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8<br /><strong>红色标注的是名为 mysql 的数据库，大家不要全部照抄。</strong></p> <h2> <a id="_38" rel="nofollow"></a>四、方法</h2> <pre><code class="prism language-java">	<span class="token annotation punctuation">@Autowired</span> 	<span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>  	<span class="token annotation punctuation">@ResponseBody</span> 	<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/save"</span><span class="token punctuation">)</span> 	<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">Map</span> params<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{<!-- --></span>  		<span class="token comment">// ------定义推送结果--------</span> 		<span class="token class-name">String</span> a<span class="token punctuation">;</span>  		<span class="token comment">// ------获取推送数据--------</span> 		id <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment">//创建任务接口返回的id</span> 		companyId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"companyId"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//公司id</span> 		templateId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"templateId"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//模板id</span> 		templateName <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"templateName"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//模板名称</span> 		phone <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"phone"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//外呼号码</span> 		result <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//外呼结果</span> 		callTime <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"callTime"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//外呼时间</span> 		taskId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"taskId"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//外呼任务id</span> 		callDuration <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"callDuration"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//外呼时长</span> 		voiceText <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"voiceText"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//对话信息</span> 		intention <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"intention"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//意向</span> 		intentionRoute <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"intentionRoute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//意向路径</span> 		intentionScore <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"intentionScore"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//意向分数</span> 		telnum <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"telnum"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//外呼主叫号码</span> 		callRound <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"callRound"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//呼叫轮次</span> 		visitResult <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"visitResult"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//报表意向回访状态</span> 		lastRoundFlag <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Boolean</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"lastRoundFlag"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//是否最后一轮</span> 		totalDuration <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"totalDuration"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//外呼总时长</span> 		userData <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"userData"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//透传字段</span> 		visitResultReport <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"visitResultReport"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//报表意向回访结果</span> 		sex <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"sex"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//性别</span> 		dynamicProperties <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"dynamicProperties"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//动态字段</span> 		hangUpDirect <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"hangUpDirect"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//挂断方向</span> 		fdsfPath <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"fdsfPath"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//通话录音文件路径</span> 		dialogueList <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">List</span><span class="token punctuation">)</span> params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"dialogueList"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//人机对话详情</span>  		<span class="token comment">// ************** 存入mysql *********************</span> 		<span class="token comment">// ---------清空表-----------</span> 		<span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"DELETE FROM url_table"</span><span class="token punctuation">;</span> 		jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span> 		 		<span class="token comment">// --------存入新数据------------</span> 		sql <span class="token operator">=</span> <span class="token string">"INSERT INTO url_table("</span> <span class="token operator">+</span> <span class="token string">"`id`,`companyId`,`templateId`,`templateName`,`phone`,"</span> 				<span class="token operator">+</span> <span class="token string">"`result`,`callTime`,`taskId`,`callDuration`,`voiceText`,"</span> 				<span class="token operator">+</span> <span class="token string">"`intention`,`intentionRoute`,`intentionScore`,`telnum`,`callRound`,"</span> 				<span class="token operator">+</span> <span class="token string">"`visitResult`,`lastRoundFlag`,`totalDuration`,`userData`,`visitResultReport`,"</span> 				<span class="token operator">+</span> <span class="token string">"`sex`,`dynamicProperties`,`hangUpDirect`,`fdsfPath`,`dialogueList`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"</span><span class="token punctuation">;</span> 		jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> id<span class="token punctuation">,</span> companyId<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> templateId<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> templateName<span class="token punctuation">,</span> phone<span class="token punctuation">,</span>  				result<span class="token punctuation">,</span> callTime<span class="token punctuation">,</span> taskId<span class="token punctuation">,</span> callDuration<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> voiceText<span class="token punctuation">,</span>  				intention<span class="token punctuation">,</span> intentionRoute<span class="token punctuation">,</span> intentionScore<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> telnum<span class="token punctuation">,</span> callRound<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  				visitResult<span class="token punctuation">,</span> lastRoundFlag<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> totalDuration<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> userData<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> visitResultReport<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  				sex<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dynamicProperties<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> hangUpDirect<span class="token punctuation">,</span> fdsfPath<span class="token punctuation">,</span> dialogueList<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  		<span class="token punctuation">)</span><span class="token punctuation">;</span> 		 		<span class="token comment">//存储数据库成功且必填字段不为空，则推送成功</span> 		<span class="token keyword">if</span> <span class="token punctuation">(</span>phone <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> result <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> id <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> callRound <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> companyId <span class="token operator">!=</span> <span class="token keyword">null</span> 				<span class="token operator">&amp;&amp;</span> templateId <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> templateName <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 			a <span class="token operator">=</span> <span class="token string">"推送成功"</span><span class="token punctuation">;</span> 		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{<!-- --></span> 			a <span class="token operator">=</span> <span class="token string">"推送失败，缺失必填值"</span><span class="token punctuation">;</span> 		<span class="token punctuation">}</span>  		<span class="token keyword">return</span> a<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53791.htm">买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）</a></p>
+                                        <p>下一个：<a href="/news/article-54340.htm">【Vue.js】兄弟组件之间调用对方的方法</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-free-v2ray-subscribe.htm" title="「2月8日」最高速度20.9M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐">「2月8日」最高速度20.9M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-43602.htm" title="宠物粮食店铺图片大全（宠物粮食生意怎么样）">宠物粮食店铺图片大全（宠物粮食生意怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-51645.htm" title="青浦二中本科录取率2019年（青浦第二中学本科率）">青浦二中本科录取率2019年（青浦第二中学本科率）</a></li>
+                        <li class="py-2"><a href="/news/article-34966.htm" title="打疫苗能吃动物内脏吗（打疫苗可以吃吗?）">打疫苗能吃动物内脏吗（打疫苗可以吃吗?）</a></li>
+                        <li class="py-2"><a href="/news/article-43110.htm" title="动物防疫疫苗空瓶如何销毁处理措施（动物疫苗未冷藏几小时失效）">动物防疫疫苗空瓶如何销毁处理措施（动物疫苗未冷藏几小时失效）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-clash-windows.htm" title="「1月21日」最高速度18.2M/S，2025年Clash/SSR/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「1月21日」最高速度18.2M/S，2025年Clash/SSR/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-54339.htm" title="Springboot 连接 Mysql">Springboot 连接 Mysql</a></li>
+                        <li class="py-2"><a href="/news/article-53790.htm" title="云原生之Docker实战使用docker部署Jellyfin个人影音服务器">云原生之Docker实战使用docker部署Jellyfin个人影音服务器</a></li>
+                        <li class="py-2"><a href="/news/article-30952.htm" title="深圳动物防疫站给猫打疫苗要多少钱（深圳猫咪疫苗）">深圳动物防疫站给猫打疫苗要多少钱（深圳猫咪疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-19823.htm" title="新疆领养宠物的地方 新疆领养宠物的地方有哪些">新疆领养宠物的地方 新疆领养宠物的地方有哪些</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

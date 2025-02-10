@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-54340.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>【Vue.js】兄弟组件之间调用对方的方法</title>
+        <meta name="description" content="参考：Vue兄弟组件之间如何调用对方的方法   兄弟组件之间的通讯有一个方法是通过父组件进行交互，那么解决的思路就是子组件调用父组件的方法，然后父组件调用另一个子组件的方法，这样就实现了兄弟组件的交互" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-54340.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="【Vue.js】兄弟组件之间调用对方的方法" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/fb4feeaf1ccf3305189ff945d8c5ea2e.webp" />
+        <meta property="og:release_date" content="2025-02-10T07:39:08" />
+    <meta property="og:updated_time" content="2025-02-10T07:39:08" />
+        <meta property="og:description" content="参考：Vue兄弟组件之间如何调用对方的方法   兄弟组件之间的通讯有一个方法是通过父组件进行交互，那么解决的思路就是子组件调用父组件的方法，然后父组件调用另一个子组件的方法，这样就实现了兄弟组件的交互" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【Vue.js】兄弟组件之间调用对方的方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">【Vue.js】兄弟组件之间调用对方的方法</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://my.oschina.net/u/3547207/blog/1644994"  rel="nofollow">Vue兄弟组件之间如何调用对方的方法</a></p> </blockquote> </h1> <p>兄弟组件之间的通讯有一个方法是通过父组件进行交互，那么解决的思路就是子组件调用父组件的方法，然后父组件调用另一个子组件的方法，这样就实现了兄弟组件的交互功能。</p> </h1> <ol> <li>首先被父组件调用的子组件方法定义一下</li> </ol> <pre class="prettyprint"><code class="hljs livecodeserver">appendToTree({<!-- --><span class="hljs-built_in">param</span>}){    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'这是子组件tree的方法'</span>) },</code></pre> <ol> <li>父组件parent.vue中的子组件加一个ref属性，就相当于给这个子组件取了一个别名。注意，这个是加在需要调用的子组件上的。</li> </ol> <pre class="prettyprint"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">treeModel</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">"tree"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">treeModel</span>&gt;</span></code></pre> <ol> <li>父组件的方法中通过this.$refs的方式来调用子组件的方法</li> </ol> <pre class="prettyprint"><code class="hljs mel"><span class="hljs-comment">//这个是父组件的方法，名字随便定义</span> childTreeFn({param}){     console.<span class="hljs-keyword">log</span>(<span class="hljs-string">'参数'</span>,param)     <span class="hljs-comment">//因为要调用的是别名为tree的子组件中定义的appendToTree方法，所以就这么写</span>     this.<span class="hljs-variable">$refs</span>.tree.appendToTree({param}); }</code></pre> </h1> <ol> <li>在子组件上添加一个事件（或者别名？对前端的专业术语不了解），名字随便取，值是准备调用的父组件方法</li> </ol> <pre class="prettyprint"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">child</span> @<span class="hljs-attribute">parentFn</span>=<span class="hljs-value">"childTreeFn"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">child</span> &gt;</span></code></pre> <ol> <li>在子组件中通过$.emit方法来调用父组件的方法</li> </ol> <pre class="prettyprint"><code class="hljs cs"><span class="hljs-comment">//子组件的方法名，随便取</span> submit() {     <span class="hljs-comment">//因为要调用的是事件为parentFn，后面跟上参数</span>     <span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'parentFn'</span>,{param:<span class="hljs-keyword">this</span>.argument}); },</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54339.htm">Springboot 连接 Mysql</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-44089.htm" title="开个宠物医院需要什么条件才能开（开个宠物医院需要什么条件才能开呢）">开个宠物医院需要什么条件才能开（开个宠物医院需要什么条件才能开呢）</a></li>
+                        <li class="py-2"><a href="/news/article-25819.htm" title="广州猫咪领养中心地址查询（广州猫咪领养中心地址查询电话）">广州猫咪领养中心地址查询（广州猫咪领养中心地址查询电话）</a></li>
+                        <li class="py-2"><a href="/news/article-24172.htm" title="动物医院手续（动物医院贵吗）">动物医院手续（动物医院贵吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-ssr-subscribe.htm" title="「12月7日」最高速度22.6M/S，2024年V2ray/Clash/Shadowrocket/SSR免费节点订阅链接，高速机场推荐">「12月7日」最高速度22.6M/S，2024年V2ray/Clash/Shadowrocket/SSR免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-21200.htm" title="猫咪驱虫应该用什么药（猫咪驱虫什么药最好）">猫咪驱虫应该用什么药（猫咪驱虫什么药最好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-v2ray-subscribe.htm" title="「11月10日」最高速度21.2M/S，2024年Shadowrocket/V2ray/SSR/Clash免费节点订阅链接，高速机场推荐">「11月10日」最高速度21.2M/S，2024年Shadowrocket/V2ray/SSR/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-clash-node.htm" title="「1月19日」最高速度20M/S，2025年Shadowrocket/SSR/V2ray/Clash免费节点订阅链接，高速机场推荐">「1月19日」最高速度20M/S，2025年Shadowrocket/SSR/V2ray/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-48424.htm" title="typescript的安装运行与自动编译">typescript的安装运行与自动编译</a></li>
+                        <li class="py-2"><a href="/news/article-52709.htm" title="三国杀有限定技的武将有谁（三国杀里的限定技能用几次）">三国杀有限定技的武将有谁（三国杀里的限定技能用几次）</a></li>
+                        <li class="py-2"><a href="/news/article-42613.htm" title="被猫抓伤怎样判断用不用打狂犬疫苗（被猫抓伤怎么确定有没有狂犬病）">被猫抓伤怎样判断用不用打狂犬疫苗（被猫抓伤怎么确定有没有狂犬病）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
