@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-54884.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>欧拉定理的C ++程序</title>
+        <meta name="description" content="这是一个C ++程序，它演示了Euler定理的实现。数字和模数必须是互质的，才能存在模数乘法逆。 算法 Begin &nbsp;&nbsp;&nbsp;Take&nbsp;input&nbsp;to&" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-54884.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="欧拉定理的C ++程序" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/ac5a84d8ae05270c4dc95e29faa55889.webp" />
+        <meta property="og:release_date" content="2025-02-11T05:44:13" />
+    <meta property="og:updated_time" content="2025-02-11T05:44:13" />
+        <meta property="og:description" content="这是一个C ++程序，它演示了Euler定理的实现。数字和模数必须是互质的，才能存在模数乘法逆。 算法 Begin &nbsp;&nbsp;&nbsp;Take&nbsp;input&nbsp;to&" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="欧拉定理的C ++程序">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">欧拉定理的C ++程序</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>这是一个C ++程序，它演示了Euler定理的实现。数字和模数必须是互质的，才能存在模数乘法逆。</p> <h2>算法</h2> <pre>Begin &nbsp;&nbsp;&nbsp;Take&nbsp;input&nbsp;to&nbsp;find&nbsp;modular&nbsp;multiplicative&nbsp;inverse &nbsp;&nbsp;&nbsp;Take&nbsp;input&nbsp;as&nbsp;modular&nbsp;value &nbsp;&nbsp;&nbsp;Perform&nbsp;inverse&nbsp;array&nbsp;function: &nbsp;&nbsp;&nbsp;modInverse(x&nbsp;+&nbsp;1,&nbsp;0); &nbsp;&nbsp;&nbsp;modInverse[1]&nbsp;=&nbsp;1; &nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;=&nbsp;2&nbsp;to&nbsp;x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modInverse[i]&nbsp;=&nbsp;(-(y&nbsp;/&nbsp;i)&nbsp;*&nbsp;modInverse[y&nbsp;mod&nbsp;i])&nbsp;mod&nbsp;y&nbsp;+&nbsp;y &nbsp;&nbsp;&nbsp;return&nbsp;modInverse End</pre> <h2>范例程式码</h2> <pre>#include&nbsp;&lt;iostream&gt; #include&nbsp;&lt;vector&gt; using&nbsp;namespace&nbsp;std; vector&lt;int&gt;&nbsp;inverseArray(int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;{ &nbsp;&nbsp;&nbsp;vector&lt;int&gt;&nbsp;modInverse(x&nbsp;+&nbsp;1,&nbsp;0); &nbsp;&nbsp;&nbsp;modInverse[1]&nbsp;=&nbsp;1; &nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;2;&nbsp;i&nbsp;&lt;=&nbsp;x;&nbsp;i++)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modInverse[i]&nbsp;=&nbsp;(-(y&nbsp;/&nbsp;i)&nbsp;*&nbsp;modInverse[y&nbsp;%&nbsp;i])&nbsp;%&nbsp;y&nbsp;+&nbsp;y; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;return&nbsp;modInverse; } int&nbsp;main()&nbsp;{ &nbsp;&nbsp;&nbsp;vector&lt;int&gt;::iterator&nbsp;it; &nbsp;&nbsp;&nbsp;int&nbsp;a,&nbsp;m; &nbsp;&nbsp;&nbsp;cout&lt;&lt;"Enter&nbsp;number&nbsp;to&nbsp;find&nbsp;modular&nbsp;multiplicative&nbsp;inverse:&nbsp;"; &nbsp;&nbsp;&nbsp;cin&gt;&gt;a; &nbsp;&nbsp;&nbsp;cout&lt;&lt;"Enter&nbsp;Modular&nbsp;Value:&nbsp;"; &nbsp;&nbsp;&nbsp;cin&gt;&gt;m; &nbsp;&nbsp;&nbsp;cout&lt;&lt;inverseArray(a,&nbsp;m)[a]&lt;&lt;endl; }</pre> <p>输出结果</p> <pre>Enter&nbsp;number&nbsp;to&nbsp;find&nbsp;modular&nbsp;multiplicative&nbsp;inverse:&nbsp;26 Enter&nbsp;Modular&nbsp;Value:&nbsp;7 7</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54340.htm">【Vue.js】兄弟组件之间调用对方的方法</a></p>
+                                        <p>下一个：<a href="/news/article-54885.htm">动物疫苗属于疫苗分类吗（动物疫苗属于疫苗分类吗为什么）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32385.htm" title="厦门领养宠物 厦门领养宠物中心">厦门领养宠物 厦门领养宠物中心</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-v2ray-subscribe.htm" title="「12月6日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray免费节点订阅链接，高速机场推荐">「12月6日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-25348.htm" title="动物疫苗接种后多久产生抗体了（动物疫苗间隔多久打一次）">动物疫苗接种后多久产生抗体了（动物疫苗间隔多久打一次）</a></li>
+                        <li class="py-2"><a href="/news/article-41617.htm" title="Springboot项目使用拦截器方法详解">Springboot项目使用拦截器方法详解</a></li>
+                        <li class="py-2"><a href="/news/article-32860.htm" title="开宠物店去哪里学技术（开宠物店需要去哪里学）">开宠物店去哪里学技术（开宠物店需要去哪里学）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-v2ray.htm" title="「12月18日」最高速度18.5M/S，2024年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐">「12月18日」最高速度18.5M/S，2024年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-44602.htm" title="开宠物店去哪里进货渠道（开宠物店去哪里进货渠道好）">开宠物店去哪里进货渠道（开宠物店去哪里进货渠道好）</a></li>
+                        <li class="py-2"><a href="/news/article-22116.htm" title="打了疫苗的动物用不用打狂犬疫苗针了（打了疫苗的动物用不用打狂犬疫苗针了呢）">打了疫苗的动物用不用打狂犬疫苗针了（打了疫苗的动物用不用打狂犬疫苗针了呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-clash-node.htm" title="「12月15日」最高速度19.1M/S，2024年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐">「12月15日」最高速度19.1M/S，2024年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-clash-windows.htm" title="「1月21日」最高速度18.2M/S，2025年Clash/SSR/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「1月21日」最高速度18.2M/S，2025年Clash/SSR/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
