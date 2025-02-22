@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-59959.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群</title>
+        <meta name="description" content="Kafka 搭建: 建立Zookeeper容器: 这里我们用最简单的方式创建一个独立的Zookeeper节点，如果要考虑zookeeper的高可用，可以将其做成一个集群，最好是能有多台机器。     " />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-59959.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/ec03ef4dfbfbf89adc612bc5021e087a.webp" />
+        <meta property="og:release_date" content="2025-02-20T09:57:31" />
+    <meta property="og:updated_time" content="2025-02-20T09:57:31" />
+        <meta property="og:description" content="Kafka 搭建: 建立Zookeeper容器: 这里我们用最简单的方式创建一个独立的Zookeeper节点，如果要考虑zookeeper的高可用，可以将其做成一个集群，最好是能有多台机器。     " />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div> <h2><b>Kafka 搭建:</b></h2> <h3><b>建立Zookeeper容器:</b></h3> <p>这里我们用最简单的方式创建一个独立的Zookeeper节点，如果要考虑zookeeper的高可用，可以将其做成一个集群，最好是能有多台机器。</p> <blockquote><p>    $ docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper</p></blockquote> <p>默认的，容器内配置文件在，/conf/zoo.cfg，数据和日志目录默认在/data 和 /datalog，需要的话可以将上述目录映射到宿主机的可靠文件目录下。</p> <h3><b>建立kafka集群节点:</b></h3> <p>使用docker命令可快速在同一台机器搭建多个kafka，只需要改变brokerId和端口</p> <ul> <li>节点1:</li> </ul> <blockquote><p>    $ docker run -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=192.168.0.102:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.0.102:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka</p></blockquote> <ul> <li>节点2:</li> </ul> <blockquote><p>    $ docker run -d --name kafka1 -p 9093:9093 -e KAFKA_BROKER_ID=1 -e KAFKA_ZOOKEEPER_CONNECT=192.168.0.102:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.0.102:9093 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9093 -t wurstmeister/kafka</p></blockquote> <ul> <li>节点3:</li> </ul> <blockquote><p>    $ docker run -d --name kafka2 -p 9094:9094 -e KAFKA_BROKER_ID=1 -e KAFKA_ZOOKEEPER_CONNECT=192.168.0.102:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.0.102:9094 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9094 -t wurstmeister/kafka</p></blockquote> <h3><b>这里面主要设置了4个参数</b></h3> <div class="has"> <pre class="has"><code>1KAFKA_BROKER_ID=0 2 3KAFKA_ZOOKEEPER_CONNECT=192.168.0.102:2181 4 5KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.0.102:9092 6 7KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092</code></pre> </div> <p>中间两个参数的<code>192.168.0.102</code> 改为<code>宿主机器</code> 的IP地址，如果不这么设置，可能会导致在别的机器上访问不到 kafka。</p> <h3><b>怎么查看本机的 ip:</b></h3> <blockquote><p>    $ ifconfig en0</p></blockquote> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/b5602c77bf8fd0325d62cc456b8882a6.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <h3><b>测试kafka:</b></h3> <ul> <li>进入kafka容器的命令行</li> </ul> <blockquote><p>    $ docker exec -ti kafka /bin/bash</p></blockquote> <ul> <li>进入kafka所在目录</li> </ul> <blockquote><p>    $ cd opt/kafka_2.12-1.1.0/</p></blockquote> <h3><b>创建Replication为2，Partition为2的topic:</b></h3> <blockquote><p>    $ bin/kafka-topics.sh --create --zookeeper 192.168.0.102:2181 --replication-factor 2 --partitions 2 --topic partopic</p></blockquote> <p>或者可以通过<code>kafka-manager</code> 创建</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/c1846d197f65cb41698fdf138beaddb1.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <h3><b>查看topic的状态:</b></h3> <p>在kafka容器中的<code>opt/kafka_2.12-1.1.0/</code> 目录下输入</p> <blockquote><p>    $ bin/kafka-topics.sh --describe --zookeeper 192.168.0.102:2181 --topic partopic</p></blockquote> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/a515ddc450bff84d76e9baff2e645e60.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <p>显示每个分区的Leader机器为broker0，在broker0和1上具有备份，Isr代表存活的备份机器中存活的。</p> <p>当停掉kafka1后，</p> <blockquote><p>    $ docker stop kafka1</p></blockquote> <p>再查看topic状态，输出结果：</p> <div class="has"> <pre class="has"><code>1Topic:partopic PartitionCount:2 ReplicationFactor:2 Configs: 2 3Topic: partopic Partition: 0 Leader: 0 Replicas: 0,1 Isr: 0 4 5Topic: partopic Partition: 1 Leader: 0 Replicas: 1,0 Isr: 0</code></pre> </div> <h3><b>创建Kafka管理节点:</b></h3> <p><code>kafka-manager</code>有图形化UI，可以方便的监控集群状态，调整队列配置</p> <blockquote><p>    $ docker run -itd --restart=always --name=kafka-manager -p 9000:9000 -e ZK_HOSTS="192.168.0.102:2181" sheepkiller/kafka-manager</p></blockquote> <p>容器启动以后访问主机的9000端口，0.0.0:9000</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/f907ceb14f817297a6d20897c1a6a7b5.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <p>首次进入需要添加一个集群标识，如下图所示</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/a80c4c9ee24b6b2550db19f13415294a.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <p>配置好以后，通过Zookeeper该管理节点可以读取到整个Kafka集群的信息，并且我们可以通过JMX直接看到集群的健康状态</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/12515ab4abe6655b9c8275cd58dbc333.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <p>也可以看到主题的读写速度，偏移量等信息，如下图所示：</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/d11979f26324426f6dfd6e9fa3c9b885.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <p>Brokers ,Partitions,Replicas 都能看到</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/d5567629322495261c8379eccd28d680.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <p>以及 group:</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/477f89f441d3adc6d495e3b55bb4498e.jpg" alt="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群"></div> <h2><b>参考文章:</b></h2> <p>https://blog.csdn.net/lblblblblzdx/article/details/80548157</p> <p>https://blog.csdn.net/lblblblblzdx/article/details/80548294</p> <p>原文链接：[mac 使用 docker搭建 kafka集群 + Zookeeper + kafka-manager](mac 使用 docker搭建 kafka集群 + Zookeeper + kafka-manager)</p> <p>原文标题：[mac 使用 docker搭建 kafka集群 + Zookeeper + kafka-manager]</p> <p>本站使用「 署名-非商业性使用 4.0 国际 (CC BY-NC 4.0)」创作共享协议，转载或使用请署名并注明出处。</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59364.htm">动物疫苗销售许可证如何办理手续（动物疫苗销售许可证如何办理手续流程图）</a></p>
+                                        <p>下一个：<a href="/news/article-59960.htm">吉泰酒店集团有限公司（吉泰酒店集团有限公司招聘）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-19367.htm" title="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目">vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-clash-node-daily-updates.htm" title="「2月7日」最高速度20.2M/S，2025年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐">「2月7日」最高速度20.2M/S，2025年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-48041.htm" title="动物疫苗法律法规最新版 动物疫苗法律法规最新版本">动物疫苗法律法规最新版 动物疫苗法律法规最新版本</a></li>
+                        <li class="py-2"><a href="/news/article-21643.htm" title="被野猫抓轻微出血怎么办（被野猫抓轻微出血怎么办图片）">被野猫抓轻微出血怎么办（被野猫抓轻微出血怎么办图片）</a></li>
+                        <li class="py-2"><a href="/news/article-37179.htm" title="宠物领养协议范本图片（宠物领养协议是否有法律效力）">宠物领养协议范本图片（宠物领养协议是否有法律效力）</a></li>
+                        <li class="py-2"><a href="/news/article-35943.htm" title="国内生产宠物粮的上市公司排名（国内生产宠物粮的上市公司排名）">国内生产宠物粮的上市公司排名（国内生产宠物粮的上市公司排名）</a></li>
+                        <li class="py-2"><a href="/news/article-57673.htm" title="狗狗疫苗可以自己打不（狗的疫苗能自己打吗）">狗狗疫苗可以自己打不（狗的疫苗能自己打吗）</a></li>
+                        <li class="py-2"><a href="/news/article-32861.htm" title="宠物店一袋猫粮多少钱 宠物店一袋猫粮多少钱啊">宠物店一袋猫粮多少钱 宠物店一袋猫粮多少钱啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-node-subscribe.htm" title="「11月22日」最高速度18.4M/S，2024年V2ray/SSR/Shadowrocket/Clash免费节点订阅链接，高速机场推荐">「11月22日」最高速度18.4M/S，2024年V2ray/SSR/Shadowrocket/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-node-share-links.htm" title="「12月29日」最高速度22.5M/S，2024年SSR/Clash/Shadowrocket/V2ray免费节点订阅链接，高速机场推荐">「12月29日」最高速度22.5M/S，2024年SSR/Clash/Shadowrocket/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
