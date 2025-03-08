@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-68478.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>jpa mysql乐观锁_JPA @Lock(value = LockModeType.PESSIMISTIC_WRITE) 悲观锁防坑</title>
+        <meta name="description" content="前提： 由于业务需要在entity Product已经实现了@version的乐观锁的基础上再加上了悲观锁的控制 @Lock(value = LockModeType.PESSIMISTIC_WRIT" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-68478.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="jpa mysql乐观锁_JPA @Lock(value = LockModeType.PESSIMISTIC_WRITE) 悲观锁防坑" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/0fdc40d40cb3e478bc9034144fb612ff.webp" />
+        <meta property="og:release_date" content="2025-03-06T11:03:01" />
+    <meta property="og:updated_time" content="2025-03-06T11:03:01" />
+        <meta property="og:description" content="前提： 由于业务需要在entity Product已经实现了@version的乐观锁的基础上再加上了悲观锁的控制 @Lock(value = LockModeType.PESSIMISTIC_WRIT" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="jpa mysql乐观锁_JPA @Lock(value = LockModeType.PESSIMISTIC_WRITE) 悲观锁防坑">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">jpa mysql乐观锁_JPA @Lock(value = LockModeType.PESSIMISTIC_WRITE) 悲观锁防坑</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>前提：</p> <p>由于业务需要在entity Product已经实现了@version的乐观锁的基础上再加上了悲观锁的控制</p> <p>@Lock(value = LockModeType.PESSIMISTIC_WRITE)</p> <p>Product findByType(String type);</p> <p>详情描述：</p> <p>但是当进行多请求的并发测试的时候发现程序第一个抢占findByType的请求能正常上锁，其它并发请求也正常进入等待，可是当第一个请求修改product并且提交事务释放锁的时候，其它等待请求准备上锁的时候却抛出了乐观锁的错误，为什么会出现这种错误呢？</p> <p>解答：</p> <p>JPA 提供的@Lock 不是直接对findByType生成的对应查询语句后面加for update上锁，而是按照下面的顺序来上锁的：</p> <p>执行查询语句： select * from product where type = ?</p> <p>查询结果(id, type, version): [1001, 'NEW', 1]</p> <p>通过查询出来的id, version在执行以下查询</p> <p>select * from product where product id = 1001 and version = 1</p> <p>如果步骤2查询有数据返回的话就生成下面的for update的查询SQL上锁， 如果没有就抛出乐观锁异常。</p> <p>select * from product where product id = 1001 and version = 1 for update</p> <p>根据@Lock的上述执行原理，当触发多请求并发的时候，所有请求都同步执行了上述1的查询操作，当执行步骤2，3的时候先上锁的请求修改了数据和版本后，后续请求在旧的version就查询不出来数据就抛出了乐观锁异常了。</p> <p>建议：</p> <p>一般情况下尽量避免使用悲观锁，对系统开销很大，如果不得已需要用到的话还是直接写for update的SQL直接上锁。</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-67875.htm">动物防疫疫苗的运输规定最新版（动物疫苗运输与储存规范）</a></p>
+                                        <p>下一个：<a href="/news/article-68479.htm">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-35944.htm" title="流浪宠物领养网站 流浪宠物领养网站基于s***">流浪宠物领养网站 流浪宠物领养网站基于s***</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-free-clash.htm" title="「3月1日」最高速度22.4M/S，2025年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐">「3月1日」最高速度22.4M/S，2025年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-36684.htm" title="Python trino执行hive insert overwrite不生效的问题">Python trino执行hive insert overwrite不生效的问题</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-node-share.htm" title="「1月23日」最高速度19M/S，2025年V2ray/Clash/Shadowrocket/SSR免费节点订阅链接，高速机场推荐">「1月23日」最高速度19M/S，2025年V2ray/Clash/Shadowrocket/SSR免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-50084.htm" title="北京宠爱国际动物医院怎么样知乎（北京宠爱国际动物医疗机构）">北京宠爱国际动物医院怎么样知乎（北京宠爱国际动物医疗机构）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-node-share-links.htm" title="「3月7日」最高速度18.4M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「3月7日」最高速度18.4M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-v2ray.htm" title="「2月23日」最高速度18.9M/S，2025年V2ray/SSR/Clash/Shadowrocket免费节点订阅链接，高速机场推荐">「2月23日」最高速度18.9M/S，2025年V2ray/SSR/Clash/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-shadowrocket-node.htm" title="「1月17日」最高速度18.1M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐">「1月17日」最高速度18.1M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-v2ray.htm" title="「2月1日」最高速度20.2M/S，2025年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐">「2月1日」最高速度20.2M/S，2025年SSR/Shadowrocket/Clash/V2ray免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-59363.htm" title="springboot 定义统一返回结果">springboot 定义统一返回结果</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
