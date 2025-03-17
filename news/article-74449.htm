@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-74449.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>将eclipse里的springboot项目打包成jar包部署到服务器上</title>
+        <meta name="description" content="在此之前我的服务器已经配置了nginx和jdk了； 步骤： 1.在pom.xml里面配置： 2.打开cmd,路径切换到项目位置（我的如下：）： 3.运行打包： mvn clean package  4" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-74449.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="将eclipse里的springboot项目打包成jar包部署到服务器上" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/e9485d37924cb4d88e1f40810e4f92f9.webp" />
+        <meta property="og:release_date" content="2025-03-15T07:21:02" />
+    <meta property="og:updated_time" content="2025-03-15T07:21:02" />
+        <meta property="og:description" content="在此之前我的服务器已经配置了nginx和jdk了； 步骤： 1.在pom.xml里面配置： 2.打开cmd,路径切换到项目位置（我的如下：）： 3.运行打包： mvn clean package  4" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="将eclipse里的springboot项目打包成jar包部署到服务器上">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">将eclipse里的springboot项目打包成jar包部署到服务器上</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><strong>在此之前我的服务器已经配置了nginx和jdk了；</strong><br /> 步骤：<br /> 1.在pom.xml里面配置：<img decoding="async" src="http://img.555519.xyz/uploads3/20220603/f592f75937de605c5f704ccfe608c574.jpg" alt="将eclipse里的springboot项目打包成jar包部署到服务器上"><br /> 2.打开cmd,路径切换到项目位置（我的如下：）：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/bcc9407092aa004044fd37dc97291d78.jpg" alt="将eclipse里的springboot项目打包成jar包部署到服务器上"><br /> 3.运行打包：</p> <pre><code>mvn clean package</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/5a793ac309d786cce6df255fa98dabaf.jpg" alt="将eclipse里的springboot项目打包成jar包部署到服务器上"><br /> 4.打包好的项目默认存放在项目的target目录里：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/be5ddb403b3779200ef50c92af49d725.jpg" alt="将eclipse里的springboot项目打包成jar包部署到服务器上"><br /> 5.把jar包传到服务器里（我使用软件xftp）<br /> 6.用xshell连接服务器，切换到刚刚jar包保存的路径<br /> 7.使用java -jar “自己的项目jar包名”（我的是：java -jar springbootdemo-0.0.1-SNAPSHOT.jar）,来启动服务器的springboot项目<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/a7e6f932d8c18912367f2f567c0bb3de.jpg" alt="将eclipse里的springboot项目打包成jar包部署到服务器上"></p> <p>**注意：<br /> ①在使用java命令时，要先配好java环境（下载java jdk）<em>,不然会报错：</em><br /><strong>②如果使用java -jar "jar包名"报错以下错误（解决方案：是你权限不够，你得开启root 权限（输入sudo su,然后输入密码，就成功开启root了），在运行就成功了）</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/03c6758d834dc6ca857e18a26fbd437d.jpg" alt="将eclipse里的springboot项目打包成jar包部署到服务器上"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-74448.htm">Git恢复之前版本的两种方法reset、revert（图文详解）</a></p>
+                                        <p>下一个：<a href="/news/article-75099.htm">狗粮颗粒机二手市场（狗粮设备生产线二手）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-v2ray.htm" title="「2月23日」最高速度18.9M/S，2025年V2ray/SSR/Clash/Shadowrocket免费节点订阅链接，高速机场推荐">「2月23日」最高速度18.9M/S，2025年V2ray/SSR/Clash/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-37179.htm" title="宠物领养协议范本图片（宠物领养协议是否有法律效力）">宠物领养协议范本图片（宠物领养协议是否有法律效力）</a></li>
+                        <li class="py-2"><a href="/news/article-55437.htm" title="北京中农大动物医院有限公司上班怎么样 北京中农大动物医院有限公司上班怎么样啊">北京中农大动物医院有限公司上班怎么样 北京中农大动物医院有限公司上班怎么样啊</a></li>
+                        <li class="py-2"><a href="/news/article-73761.htm" title="领养猫回访是什么意思（领养宠物回访）">领养猫回访是什么意思（领养宠物回访）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-clash-v2ray-ss-ssr.htm" title="「1月6日」最高速度22.6M/S，2025年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐">「1月6日」最高速度22.6M/S，2025年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-high-speed-nodes.htm" title="「1月12日」最高速度22M/S，2025年Shadowrocket/V2ray/Clash/SSR免费节点订阅链接，高速机场推荐">「1月12日」最高速度22M/S，2025年Shadowrocket/V2ray/Clash/SSR免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-free-clash.htm" title="「2月25日」最高速度19.4M/S，2025年V2ray/Shadowrocket/Clash/SSR免费节点订阅链接，高速机场推荐">「2月25日」最高速度19.4M/S，2025年V2ray/Shadowrocket/Clash/SSR免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-43602.htm" title="宠物粮食店铺图片大全（宠物粮食生意怎么样）">宠物粮食店铺图片大全（宠物粮食生意怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-linux-clash-github.htm" title="「3月9日」最高速度19.9M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐">「3月9日」最高速度19.9M/S，2025年SSR/Shadowrocket/V2ray/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-clash-node-daily-updates.htm" title="「3月17日」最高速度20.1M/S，2025年Shadowrocket/SSR/V2ray/Clash免费节点订阅链接，高速机场推荐">「3月17日」最高速度20.1M/S，2025年Shadowrocket/SSR/V2ray/Clash免费节点订阅链接，高速机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
