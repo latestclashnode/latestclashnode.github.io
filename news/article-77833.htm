@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-77833.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>反射的概念 和基本使用（一）</title>
+        <meta name="description" content="什么是反射  java反射 是指在运行状态中 对于任意一个类 我们都可以知到这个类的所有方法和属性 也可以调用其所有的方法和属性  这种动态获取的方式 我们称为反射  什么是class对象   我们通" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-77833.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="反射的概念 和基本使用（一）" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/d3305ed6af7048b5e7f69555cfc7371f.webp" />
+        <meta property="og:release_date" content="2025-03-20T10:02:28" />
+    <meta property="og:updated_time" content="2025-03-20T10:02:28" />
+        <meta property="og:description" content="什么是反射  java反射 是指在运行状态中 对于任意一个类 我们都可以知到这个类的所有方法和属性 也可以调用其所有的方法和属性  这种动态获取的方式 我们称为反射  什么是class对象   我们通" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="反射的概念 和基本使用（一）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">反射的概念 和基本使用（一）</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <h3 id="什么是反射">什么是反射</h3> <blockquote> <p>java反射 是指在运行状态中 对于任意一个类 我们都可以知到这个类的所有方法和属性 也可以调用其所有的方法和属性  这种动态获取的方式 我们称为<strong>反射</strong></p> </blockquote> <h3 id="什么是class对象">什么是class对象</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7979522ca41f14c021cfeea795249129.jpg" alt="反射的概念 和基本使用（一）"></p> <blockquote> <p>我们通过使用<code>反射</code> 就是通过Class类来实现的<code>Class</code> 类的实例表示正在运行的 Java 应用程序中的类和接口。</p> <p>也就是jvm中有N多的实例每个类都有该Class对象。（包括基本数据类型）</p> </blockquote> <h3 id="反射的使用">反射的使用</h3> <h4 id="获取class对象的三种方式">获取class对象的三种方式</h4> <h5 id="基本类"><strong>基本类</strong></h5> <pre><code class="language-java">/**  *  * @author : look-word  * @date : 2022-04-05 20:49  **/ public class Student {     private String username;     private String gender;      public  String getInfo() {         this.setUsername("张三");         this.setGender("男");         return this.username+"="+this.gender;     }      public String getUsername() {         return username;     }      public void setUsername(String username) {         this.username = username;     }      public String getGender() {         return gender;     }      public void setGender(String gender) {         this.gender = gender;     } }</code></pre> <h5 id="测试代码如下"><strong>测试代码如下</strong></h5> <pre><code class="language-java">/**  * @author : look-word  * @date : 2022-04-05 20:54  **/ public class Test {     public static void main(String[] args) {          /*             1 创建对象 获取其class对象          */         Student student = new Student();         Class&lt;? extends Student&gt; aClass = student.getClass();         System.out.println(aClass.getSimpleName());         /*             2 任何数据类型（包括基本数据类型）都有一个“静态”的class属性          */         Class&lt;? extends Student&gt; bClass=Student.class;         System.out.println(aClass == bClass?"两者是同一对象":"两者不是同一对象");         /*             3 通过Class类的forName方法获取          */         try {             //  Class.forName(类的相对路径)             Class&lt;?&gt; cClass = Class.forName("bean.Student");             System.out.println(bClass == cClass?"两者是同一对象":"两者不是同一对象");         } catch (ClassNotFoundException e) {             e.printStackTrace();         }     } }</code></pre> <h5 id="结果如下"><strong>结果如下</strong></h5> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c864112bfaabe40687973992ac013ecc.jpg" alt="反射的概念 和基本使用（一）"></p> <h5 id="证明">证明</h5> <blockquote> <p>在运行期间 一个类只有一个class对象的产生</p> <p>常用的是<code>第三次</code> 清晰 明了 因为 在一个项目中 可能会产生 相同名字的类</p> <p>解决疑惑  为什么要是用 第三种</p> <p>第一种对象都有了还要反射干什么。</p> <p>第二种需要导入类的包，依赖太强，不导包就抛编译错误。</p> <p><code>第三种</code>，一个字符串可以传入也可写在配置文件中等多种方法。</p> </blockquote> <h4 id="获取class类中的所有构造方法">获取Class类中的所有构造方法</h4> <h5 id="基本类-1">基本类</h5> <pre><code class="language-java">public class Student {     //---------------构造方法-------------------     //（默认的构造方法）     Student(String str){         System.out.println("(默认)的构造方法 s = " + str);     }      //无参构造方法     public Student(){         System.out.println("调用了公有、无参构造方法执行了。。。");     }      //有一个参数的构造方法     public Student(char name){         System.out.println("姓名：" + name);     }      //有多个参数的构造方法     public Student(String name ,int age){         System.out.println("姓名："+name+" 年龄："+ age);//这的执行效率有问题，以后解决。     }      //受保护的构造方法     protected Student(boolean n){         System.out.println("受保护的构造方法 n = " + n);     }      //私有构造方法     private Student(int age){         System.out.println("私有的构造方法   年龄："+ age);     } }</code></pre> <h5 id="测试代码">测试代码</h5> <pre><code class="language-java">/**  * 测试构造方法  * @author : look-word  * @date : 2022-04-05 21:18  **/ public class TestConstructor {  /**  * 通过Class对象可以获取某个类中的：构造方法、成员变量、成员方法；并访问成员；  *  * 1.获取构造方法：  * 		1).批量的方法：  * 			public Constructor[] getConstructors()：所有"公有的"构造方法             public Constructor[] getDeclaredConstructors()：获取所有的构造方法(包括私有、受保护、默认、公有)   * 		2).获取单个的方法，并调用：  * 			public Constructor getConstructor(Class... parameterTypes):获取单个的"公有的"构造方法：  * 			public Constructor getDeclaredConstructor(Class... parameterTypes):获取"某个构造方法"可以是私有的，或受保护、默认、公有；  *  * 			调用构造方法：  * 			Constructor--&gt;newInstance(Object... initargs) */     public static void main(String[] args) throws Exception {         Class&lt;?&gt; student = Class.forName("bean.Student");         /*             1 获取所有共有的构造方法          */         System.out.println("\n1 获取所有共有的构造方法");         Constructor&lt;?&gt;[] constructors = student.getConstructors();         for (Constructor&lt;?&gt; constructor : constructors) {             System.out.println(constructor);         }          /*             2 获取共有的无参构造方法 可以写 null 或者 不填          */         System.out.println("\n2 获取共有的无参构造方法 可以写 null 或者 不填");         Constructor&lt;?&gt; constructor2 = student.getConstructor();         constructor2.newInstance();          /*             3 获取 给定参数共有的构造方法 public bean.Student(java.lang.String,int)          */         System.out.println("\n 3 获取 给定参数共有的构造方法 public bean.Student(java.lang.String,int)");         Constructor&lt;?&gt; constructor3 = student.getConstructor(String.class, int.class);         constructor3.newInstance("张三",19);          /*             4 获取 私有给定参数的构造方法 私有 不给定参数 不传参数即可          */         Constructor&lt;?&gt; constructor4 = student.getDeclaredConstructor(int.class);         /*             获取私有的属性 或者构造方法是 需要 设置无障碍 俗称 暴力访问             不设置 会出异常 java.lang.IllegalAccessException          */         constructor4.setAccessible(true);         constructor4.newInstance(19);     } }</code></pre> <h5 id="执行结果">执行结果</h5> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d6dcd384df6988ff11a3d3ea1648149d.jpg" alt="反射的概念 和基本使用（一）"></p> <h5 id="注意">注意</h5> <blockquote> <p>获取私有属性的时候 一定要设置无障碍</p> <p>setAccessible(true);</p> <p>不设置 会出异常 java.lang.IllegalAccessException</p> <p>newInstance(Object... initargs)  创建一个新实例<br /> 使用此<code>Constructor</code> 对象表示的构造方法来创建该构造方法的声明类的新实例，并用指定的初始化参数初始化该实例。</p> <p>每次是用<code>newInstance</code>创建的对象 都是不同的对象 代表不同的实例</p> </blockquote> <h4 id="操作成员变量">操作成员变量</h4> <h5 id="基本类-2">基本类</h5> <pre><code class="language-java">  public class Student { 	public Student(){ 		 	} 	//**********字段*************// 	public String name; 	protected int age; 	char sex; 	private String phoneNum; 	 	@Override 	public String toString() { 		return "Student [name=" + name + ", age=" + age + ", sex=" + sex 				+ ", phoneNum=" + phoneNum + "]"; 	} }</code></pre> <h5 id="测试代码-1">测试代码</h5> <pre><code class="language-java">/**  * @author : look-word  * @date : 2022-04-05 21:55  **/ public class TestField {  /*  * 获取成员变量并调用：  *  * 1.批量的  * 		1).Field[] getFields():获取所有的"公有字段"  * 		2).Field[] getDeclaredFields():获取所有字段，包括：私有、受保护、默认、公有；  * 2.获取单个的：  * 		1).public Field getField(String fieldName):获取某个"公有的"字段；  * 		2).public Field getDeclaredField(String fieldName):获取某个字段(可以是私有的)  *  * 	 设置字段的值：  * 		Field --&gt; public void set(Object obj,Object value):  * 					参数说明：  * 					1.obj:要设置的字段所在的对象；  * 					2.value:要为字段设置的值； */     public static void main(String[] args) throws Exception{         Class&lt;?&gt; aClass = Class.forName("bean.Student");         Student student = new Student();          /*             获取所有的共有字段          */         System.out.println("-------------------获取所有的共有字段--------------------");         Field[] fields = aClass.getFields();         for (Field field : fields) {             /*                 filed =&gt; public java.lang.String bean.Student.username                 filed =&gt; 成员变量              */              /*                我理解为 给某个对象的 成员变量 赋值                当前的filed 为 username 因为这里只能获取为 共有属性的成员变量              * field.set(student,"zhangsan");              */             field.set(student,"zhangsan");             System.out.println(student);             /*                 field.get(student);                 获取某student中的 field 的 内容              */             Object o = field.get(student);             System.out.println(o);             /*              *  打印filed的内容 =&gt; public java.lang.String bean.Student.username              */             System.out.println(field);         }          System.out.println("-------------------给私有字段赋值--------------------");         Field phone = aClass.getDeclaredField("phone");         phone.setAccessible(true);// 设置无障碍          phone.set(student,"110");// 赋值给student对象          System.out.println("-------------------获取私有字段--------------------");         Field phone1 = aClass.getDeclaredField("phone");         phone1.setAccessible(true);// 设置无障碍         System.out.println(phone1.get(student));//取出student对象中的phone属性的值     } }</code></pre> <h5 id="注意-1">注意</h5> <blockquote> <p>在操作私有属性的时候 不管是获取还是设置值 都需要设置无障碍</p> <p>setAccessible(true);// 设置无障碍</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77144.htm">动物防疫***收费吗现在 动物防疫站***多少钱</a></p>
+                                        <p>下一个：<a href="/news/article-77834.htm">php错误/异常/日志及常见调试和排错_在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-59363.htm" title="springboot 定义统一返回结果">springboot 定义统一返回结果</a></li>
+                        <li class="py-2"><a href="/news/article-48423.htm" title="Python，如何将元组中的元素作为参数传入函数">Python，如何将元组中的元素作为参数传入函数</a></li>
+                        <li class="py-2"><a href="/news/article-37178.htm" title="养狗的人容易得15种病视频讲解（养狗的人容易得癌症吗）">养狗的人容易得15种病视频讲解（养狗的人容易得癌症吗）</a></li>
+                        <li class="py-2"><a href="/news/article-36684.htm" title="Python trino执行hive insert overwrite不生效的问题">Python trino执行hive insert overwrite不生效的问题</a></li>
+                        <li class="py-2"><a href="/news/article-61122.htm" title="自家养的拉布拉多出售（家养拉布拉多怎么样）">自家养的拉布拉多出售（家养拉布拉多怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-47560.htm" title="设计模式之六大原则——接口隔离原则（ISP）">设计模式之六大原则——接口隔离原则（ISP）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-v2ray.htm" title="「1月16日」最高速度22.9M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「1月16日」最高速度22.9M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-49044.htm" title="有哪些质量过关的童鞋品牌值得安利买(有哪些质量过关的童鞋品牌值得安利销售)">有哪些质量过关的童鞋品牌值得安利买(有哪些质量过关的童鞋品牌值得安利销售)</a></li>
+                        <li class="py-2"><a href="/news/article-55436.htm" title="动物防疫疫苗管理工作方案范文怎么写（动物疫苗管理办法）">动物防疫疫苗管理工作方案范文怎么写（动物疫苗管理办法）</a></li>
+                        <li class="py-2"><a href="/news/article-77141.htm" title="动物疫苗的保存温度和湿度 动物疫苗的保存温度和湿度是多少">动物疫苗的保存温度和湿度 动物疫苗的保存温度和湿度是多少</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
