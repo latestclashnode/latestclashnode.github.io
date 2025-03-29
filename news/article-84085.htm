@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-84085.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>搭建vue3.0+Element Plus项目</title>
+        <meta name="description" content="一、全局安装vue-cli4.x脚手架 npm install @vue/cli -g 二创建项目 vue create 项目名字 我的项目选项 三、安装element plus npm instal" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-84085.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="搭建vue3.0+Element Plus项目" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/017ad5d48576e4a8b2f923af6e6b0e66.webp" />
+        <meta property="og:release_date" content="2025-03-29T09:02:15" />
+    <meta property="og:updated_time" content="2025-03-29T09:02:15" />
+        <meta property="og:description" content="一、全局安装vue-cli4.x脚手架 npm install @vue/cli -g 二创建项目 vue create 项目名字 我的项目选项 三、安装element plus npm instal" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="搭建vue3.0+Element Plus项目">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">搭建vue3.0+Element Plus项目</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <p>一、全局安装vue-cli4.x脚手架</p> <pre><code>npm install @vue/cli -g</code></pre> <p>二创建项目</p> <pre><code>vue create 项目名字</code></pre> <p>我的项目选项<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220823/0913547ea75ddcf65298a044dc345d61.jpg" alt="搭建vue3.0+Element Plus项目"><br /> 三、安装element plus</p> <pre><code>npm install element-plus --save</code></pre> <p>在 main.js 中写入以下内容：</p> <pre><code> /* import ElementPlus from 'element-plus'; app.use(ElementPlus) 不知道为什么引用这个方法，页面报错，意思说找不到。我用官网另一个方法做 */ import { createApp } from "vue"; //import ElementPlus from "element-plus"; import { useElementPlus } from "./untils/plugins.js"; import "element-plus/packages/theme-chalk/src/base.scss";//我用sass,也可以用css //import 'element-plus/lib/theme-chalk/index.css'; import App from "./App.vue"; import router from "./router"; import store from "./store"; const app = createApp(App); useElementPlus(app); app.use(store).use(router).mount("#app");</code></pre> <p>报错的内容<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220823/64ff4f7d7fdfc0ee0c9aa2a52a01b4fc.jpg" alt="搭建vue3.0+Element Plus项目"></p> <p>新建一个untils文件 新建plugins.js，内容：</p> <pre><code>import {   ElAlert,   ElAside,   ElAutocomplete,   ElAvatar,   ElBacktop,   ElBadge,   ElBreadcrumb,   ElBreadcrumbItem,   ElButton,   ElButtonGroup,   ElCalendar,   ElCard,   ElCarousel,   ElCarouselItem,   ElCascader,   ElCascaderPanel,   ElCheckbox,   ElCheckboxButton,   ElCheckboxGroup,   ElCol,   ElCollapse,   ElCollapseItem,   ElCollapseTransition,   ElColorPicker,   ElContainer,   ElDatePicker,   ElDialog,   ElDivider,   ElDrawer,   ElDropdown,   ElDropdownItem,   ElDropdownMenu,   ElFooter,   ElForm,   ElFormItem,   ElHeader,   ElIcon,   ElImage,   ElInput,   ElInputNumber,   ElLink,   ElMain,   ElMenu,   ElMenuItem,   ElMenuItemGroup,   ElOption,   ElOptionGroup,   ElPageHeader,   ElPagination,   ElPopconfirm,   ElPopover,   ElPopper,   ElProgress,   ElRadio,   ElRadioButton,   ElRadioGroup,   ElRate,   ElRow,   ElScrollbar,   ElSelect,   ElSlider,   ElStep,   ElSteps,   ElSubmenu,   ElSwitch,   ElTabPane,   ElTable,   ElTableColumn,   ElTabs,   ElTag,   ElTimePicker,   ElTimeSelect,   ElTimeline,   ElTimelineItem,   ElTooltip,   ElTransfer,   ElTree,   ElUpload,   ElInfiniteScroll,   ElLoading,   ElMessage,   ElMessageBox,   ElNotification, } from "element-plus";  const components = [   ElAlert,   ElAside,   ElAutocomplete,   ElAvatar,   ElBacktop,   ElBadge,   ElBreadcrumb,   ElBreadcrumbItem,   ElButton,   ElButtonGroup,   ElCalendar,   ElCard,   ElCarousel,   ElCarouselItem,   ElCascader,   ElCascaderPanel,   ElCheckbox,   ElCheckboxButton,   ElCheckboxGroup,   ElCol,   ElCollapse,   ElCollapseItem,   ElCollapseTransition,   ElColorPicker,   ElContainer,   ElDatePicker,   ElDialog,   ElDivider,   ElDrawer,   ElDropdown,   ElDropdownItem,   ElDropdownMenu,   ElFooter,   ElForm,   ElFormItem,   ElHeader,   ElIcon,   ElImage,   ElInput,   ElInputNumber,   ElLink,   ElMain,   ElMenu,   ElMenuItem,   ElMenuItemGroup,   ElOption,   ElOptionGroup,   ElPageHeader,   ElPagination,   ElPopconfirm,   ElPopover,   ElPopper,   ElProgress,   ElRadio,   ElRadioButton,   ElRadioGroup,   ElRate,   ElRow,   ElScrollbar,   ElSelect,   ElSlider,   ElStep,   ElSteps,   ElSubmenu,   ElSwitch,   ElTabPane,   ElTable,   ElTableColumn,   ElTabs,   ElTag,   ElTimePicker,   ElTimeSelect,   ElTimeline,   ElTimelineItem,   ElTooltip,   ElTransfer,   ElTree,   ElUpload, ];  const plugins = [   ElInfiniteScroll,   ElLoading,   ElMessage,   ElMessageBox,   ElNotification, ];  const option = { size: "small", zIndex: 3000 };  export const useElementPlus = (app) =&gt; {   // element全局配置   app.config.globalProperties.$ELEMENT = option;   // 组件注册   components.forEach((component) =&gt; {     app.component(component.name, component);   });   // 插件注册   plugins.forEach((plugin) =&gt; {     app.use(plugin);   }); };</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220823/43059e011f2252cdb863f3da59997bc7.jpg" alt="搭建vue3.0+Element Plus项目"><br /> 四、按需引入<br /> 借助 babel-plugin-import，我们可以只引入需要的组件，以达到减小项目体积的目的。</p> <p>首先，安装 babel-plugin-import:</p> <pre><code> npm install babel-plugin-import -D 或者yarn add babel-plugin-import -D</code></pre> <p>然后，将 babel.config.js 修改<br /><strong>官网上有这个方法，我主要用sass,</strong><br /> 引入 .scss 样式</p> <pre><code>module.exports = {   plugins: [     [       "import",       {         libraryName: 'element-plus',         customStyleName: (name) =&gt; {           name = name.slice(3)           return `element-plus/packages/theme-chalk/src/${name}.scss`;         },       },     ],   ], };</code></pre> <p><strong>Vite</strong>方法<br /> 安装</p> <pre><code>npm install vite-plugin-style-import -D或者yarn add vite-plugin-style-import -D</code></pre> <p>新建vite.config.js，代码：<br /> 因为element-plus提供Sass预编译的方式，接着我们需要在项目安装下面两个</p> <pre><code>import { defineConfig } from 'vite' import vue from '@vitejs/plugin-vue' import styleImport from 'vite-plugin-style-import'  export default defineConfig({   plugins: [     vue(),     styleImport({       libs: [{         libraryName: 'element-plus',         esModule: true,         ensureStyleFile: true,         resolveStyle: (name) =&gt; {           name = name.slice(3)           return `element-plus/packages/theme-chalk/src/${name}.scss`;         },         resolveComponent: (name) =&gt; {           return `element-plus/lib/${name}`;         },       }]     })   ] })</code></pre> <p>同时，你需要在main.js中引入下面（<strong>我做的项目直接用了sass，没用的直接复制上</strong>）</p> <pre><code>import 'element-plus/packages/theme-chalk/src/base.scss'</code></pre> <p>不用sass,用css修改成</p> <pre><code> import { defineConfig } from 'vite' import vue from '@vitejs/plugin-vue' import styleImport from 'vite-plugin-style-import'  export default defineConfig({   plugins: [     vue(),     styleImport({       libs: [         {           libraryName: 'element-plus',           esModule: true,           ensureStyleFile: true,           resolveStyle: (name) =&gt; {             return `element-plus/lib/theme-chalk/${name}.css`;           },           resolveComponent: (name) =&gt; {             return `element-plus/lib/${name}`;           },         }       ]     })   ] })</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83402.htm">公务员国考报名时间和考试时间（公务员考试国考报考时间）</a></p>
+                                        <p>下一个：<a href="/news/article-84086.htm">动物疫苗周期和猪周期哪个长 动物疫苗周期和猪周期哪个长些</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-free-node-subscribe.htm" title="「2月21日」最高速度21.8M/S，2025年V2ray/Shadowrocket/Clash/SSR免费节点订阅链接，高速机场推荐">「2月21日」最高速度21.8M/S，2025年V2ray/Shadowrocket/Clash/SSR免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-free-v2ray.htm" title="「2月24日」最高速度22.4M/S，2025年SSR/V2ray/Clash/Shadowrocket免费节点订阅链接，高速机场推荐">「2月24日」最高速度22.4M/S，2025年SSR/V2ray/Clash/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-53791.htm" title="买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）">买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）</a></li>
+                        <li class="py-2"><a href="/news/article-40132.htm" title="动物疫苗行业排名前十（动物疫苗生产厂家排名）">动物疫苗行业排名前十（动物疫苗生产厂家排名）</a></li>
+                        <li class="py-2"><a href="/news/article-83402.htm" title="公务员国考报名时间和考试时间（公务员考试国考报考时间）">公务员国考报名时间和考试时间（公务员考试国考报考时间）</a></li>
+                        <li class="py-2"><a href="/news/article-73092.htm" title="java面向对象是什么意思_java什么是面向对象">java面向对象是什么意思_java什么是面向对象</a></li>
+                        <li class="py-2"><a href="/news/article-61122.htm" title="自家养的拉布拉多出售（家养拉布拉多怎么样）">自家养的拉布拉多出售（家养拉布拉多怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-clash-node-daily-updates.htm" title="「1月8日」最高速度20.4M/S，2025年V2ray/Clash/Shadowrocket/SSR免费节点订阅链接，高速机场推荐">「1月8日」最高速度20.4M/S，2025年V2ray/Clash/Shadowrocket/SSR免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-45101.htm" title="猫粮制作机器设备厂家排名（猫粮制造机器）">猫粮制作机器设备厂家排名（猫粮制造机器）</a></li>
+                        <li class="py-2"><a href="/news/article-79213.htm" title="动物疫苗接种方法有哪些（动物防疫疫苗）">动物疫苗接种方法有哪些（动物防疫疫苗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
