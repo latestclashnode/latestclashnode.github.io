@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-84826.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>关于reshape(-1,&#8230;)与view(-1,&#8230;)这两个改变张量shape的函数</title>
+        <meta name="description" content="&nbsp; &nbsp; &nbsp; &nbsp; 它俩的细节参考链接都说的很明白我就不赘述了，我主要讲一下我那lstm处理mnist数据集的时候需要对数据集进行一个处理，方便把数据按模型inpu" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-84826.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="关于reshape(-1,&#8230;)与view(-1,&#8230;)这两个改变张量shape的函数" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/7b38308e22d10ad9977596f684e1332b.webp" />
+        <meta property="og:release_date" content="2025-03-30T09:35:53" />
+    <meta property="og:updated_time" content="2025-03-30T09:35:53" />
+        <meta property="og:description" content="&nbsp; &nbsp; &nbsp; &nbsp; 它俩的细节参考链接都说的很明白我就不赘述了，我主要讲一下我那lstm处理mnist数据集的时候需要对数据集进行一个处理，方便把数据按模型inpu" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="关于reshape(-1,&#8230;)与view(-1,&#8230;)这两个改变张量shape的函数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">关于reshape(-1,&#8230;)与view(-1,&#8230;)这两个改变张量shape的函数</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp; &nbsp; &nbsp; &nbsp; 它俩的细节参考链接都说的很明白我就不赘述了，我主要讲一下我那lstm处理mnist数据集的时候需要对数据集进行一个处理，方便把数据按模型input_size设定的那样喂给它。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <pre><code class="language-python">import torch  import torch.nn as nn import torchvision import torchvision.transforms as transforms   # Device configuration device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # Hyper-parameters sequence_length = 28 input_size = 28 hidden_size = 128 num_layers = 2 num_classes = 10 batch_size = 100 num_epochs = 2 learning_rate = 0.01  # MNIST dataset train_dataset = torchvision.datasets.MNIST(root='../../data/',                                            train=True,                                             transform=transforms.ToTensor(),                                            download=True)  test_dataset = torchvision.datasets.MNIST(root='../../data/',                                           train=False,                                            transform=transforms.ToTensor())  # Data loader train_loader = torch.utils.data.DataLoader(dataset=train_dataset,                                            batch_size=batch_size,                                             shuffle=True)  test_loader = torch.utils.data.DataLoader(dataset=test_dataset,                                           batch_size=batch_size,                                            shuffle=False)  total_step = len(train_loader) for epoch in range(num_epochs):     for i, (images, labels) in enumerate(train_loader):         print(images.size())         images = images.reshape(-1,sequence_length,input_size).to(device)         # images = images.view(-1,sequence_length,input_size).to(device)         print(images.size())         labels = labels.to(device)</code></pre> <pre><code>打印出来的size正如你所见： 通过enumerate(trai_loader)出来的：torch.Size([100, 1, 28, 28]) 通过reshape或者view改变shape后的：torch.Size([100, 28, 28]) 100是batch_size,1是代表mnist灰色图像只有一个通道，28width，28height</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 咱再举一反三打个比方，</p> <pre><code class="language-python">        images = images.reshape(-1,2,sequence_length, input_size).to(device)         # images = images.view(-1,2,sequence_length, input_size).to(device)         print(images.size())</code></pre> <pre><code>打印出来的size正如你所见： 通过enumerate(trai_loader)出来的：torch.Size([100, 1, 28, 28]) 通过reshape或者view改变shape后的：torch.Size([50,2, 28, 28]) 自动把batchsize变成了50，但总的数据量少没有变的，你，学废了吗？</code></pre> <p></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-84086.htm">动物疫苗周期和猪周期哪个长 动物疫苗周期和猪周期哪个长些</a></p>
+                                        <p>下一个：<a href="/news/article-84827.htm">天津宠物领养机构有哪些地址（天津市宠物领养机构）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-75796.htm" title="宠物粮市场分析图表模板（宠物粮食市场前景）">宠物粮市场分析图表模板（宠物粮食市场前景）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-free-ssr-subscribe.htm" title="「3月23日」最高速度18.9M/S，2025年SSR/V2ray/Clash/Shadowrocket免费节点订阅链接，高速机场推荐">「3月23日」最高速度18.9M/S，2025年SSR/V2ray/Clash/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-clash-windows.htm" title="「3月6日」最高速度21.6M/S，2025年V2ray/SSR/Shadowrocket/Clash免费节点订阅链接，高速机场推荐">「3月6日」最高速度21.6M/S，2025年V2ray/SSR/Shadowrocket/Clash免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-69790.htm" title="java初始时间_java日期时间详解">java初始时间_java日期时间详解</a></li>
+                        <li class="py-2"><a href="/news/article-67232.htm" title="为什么不给猫咪打狂犬疫苗（为什么不给猫咪打狂犬疫苗呢）">为什么不给猫咪打狂犬疫苗（为什么不给猫咪打狂犬疫苗呢）</a></li>
+                        <li class="py-2"><a href="/news/article-71765.htm" title="哈尔滨农大宠物医院电话号码（哈尔滨农大兽医院）">哈尔滨农大宠物医院电话号码（哈尔滨农大兽医院）</a></li>
+                        <li class="py-2"><a href="/news/article-73093.htm" title="去哪领养宠物狗（去哪可以领养宠物狗）">去哪领养宠物狗（去哪可以领养宠物狗）</a></li>
+                        <li class="py-2"><a href="/news/article-79885.htm" title="动物医学社会实践日记20篇怎么写（动物医院社会实践报告）">动物医学社会实践日记20篇怎么写（动物医院社会实践报告）</a></li>
+                        <li class="py-2"><a href="/news/article-78520.htm" title="人和动物提取的狂犬疫苗区别 人和动物提取的狂犬疫苗区别在哪">人和动物提取的狂犬疫苗区别 人和动物提取的狂犬疫苗区别在哪</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-shadowrocket-node.htm" title="「3月15日」最高速度22.9M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「3月15日」最高速度22.9M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
