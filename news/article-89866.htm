@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-89866.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>python的os模块以及time</title>
+        <meta name="description" content="os的基本操作 1、查看操作系统类型 import osprint(os.name)print('Linux'if os.name=='posix'else'Windows')  2、查看操作系统的详" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-89866.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="python的os模块以及time" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/c9aa3a8475680695da918a759f3d1809.webp" />
+        <meta property="og:release_date" content="2025-04-06T10:09:31" />
+    <meta property="og:updated_time" content="2025-04-06T10:09:31" />
+        <meta property="og:description" content="os的基本操作 1、查看操作系统类型 import osprint(os.name)print('Linux'if os.name=='posix'else'Windows')  2、查看操作系统的详" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python的os模块以及time">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">python的os模块以及time</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3><a id="os_0" rel="nofollow"></a>os的基本操作</h3> <p>1、查看操作系统类型</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os<span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Linux'</span><span class="token keyword">if</span> os<span class="token punctuation">.</span>name<span class="token operator">==</span><span class="token string">'posix'</span><span class="token keyword">else</span><span class="token string">'Windows'</span><span class="token punctuation">)</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/69275533cafd2bc355995acf5e9c241f.jpg" alt="python的os模块以及time"><br /> 2、查看操作系统的详细信息</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os info<span class="token operator">=</span>os<span class="token punctuation">.</span>uname<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>sysname<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>nodename<span class="token punctuation">)</span></code></pre> <p>3、查看系统环境变量<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/97eb25645af5590c9eefd682719425e9.jpg" alt="python的os模块以及time"><br /> 4、查看是不是绝对路径<br /> import os<br /> print(os.path.isabs(’/tmp/fff’))<br /> print(os.path.isabs(‘data.txt’))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/efd956a4271e0aefaf33f5367bb96643.jpg" alt="python的os模块以及time"><br /> 5、如何生成绝对路径<br /> import os<br /> print(os.path.abspath(‘hello.png’))<br /> print(os.path.join(’/home/kiosk/’,‘aa’))<br /> print(os.path.join(os.path.abspath(’.’),‘bb’))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/a320e2e53b5ef497b9eb4e363617adec.jpg" alt="python的os模块以及time"><br /> 6、如何获取目录名和文件名<br /> import os<br /> filename=’/home/kiosk/PycharmProjects/20191126/day05/data.txt’<br /> print(os.path.basename(filename))<br /> print(os.path.dirname(filename))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/5bbfce07b681e7377a9891f9d83362e6.jpg" alt="python的os模块以及time"><br /> 7、创建目录<br /> import os<br /> os.mkdir(‘img’) #单级目录用os.mkdir()<br /> os.makedirs(‘img/img1/img2’) #多级目录用os.makedirs()<br /> #不能递归删除目录<br /> os.rmdir(‘img’)<br /> #os.rmdir(‘img’)#递归目录不能一下删除<br /> os.rmdir(‘img/img1/img2’) #只能逐级删除<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/40e5ba62a55df58436f7a17bd7934ca1.jpg" alt="python的os模块以及time"><br /> 8.创建文件<br /> import os<br /> #os.mknod(‘okk.txt’)<br /> os.remove(‘okk.txt’)</p> <p>9.文件的重命名<br /> import os<br /> os.rename(‘data.txt’,‘dddddd.txt’)</p> <p>10.判断文件或目录是否存在<br /> import os<br /> print(os.path.exists(‘fhhgkjs’))<br /> 11.分离文件名和后缀名<br /> import os<br /> print(os.path.splitext(‘hello.jpg’) )<br /> 12、将目录名和文件名分开<br /> import os<br /> print(os.path.split(’/opt/hello.jpg’))</p> <h3><a id="_66" rel="nofollow"></a>表示时间的类型</h3> <p>分类;<br /> 1.时间戳<br /> 2.字符串时间<br /> 3.元组类型的时间<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/d635a35fd18b8ea17fe743a8853f5c50.jpg" alt="python的os模块以及time"></p> <h4><a id="_72" rel="nofollow"></a>常用的时间转换</h4> <p>元组时间转换为时间戳</p> <pre><code class="prism language-python"><span class="token keyword">import</span> time tuple_time<span class="token operator">=</span>time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>tuple_time<span class="token punctuation">)</span><span class="token comment">#转换为时间戳</span><span class="token keyword">print</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>mktime<span class="token punctuation">(</span>tuple_time<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre> <p>2\元组时间转换为字符串时间<br /> import time<br /> tuple_time=time.localtime()<br /> print(tuple_time)<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/1a47aeef859e0c204c2e7b5441b19814.jpg" alt="python的os模块以及time"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/2a006e137629e7c8186f123bc3a5009f.jpg" alt="python的os模块以及time"><br /> 3\时间戳类型的时间转换为字符串时间<br /> import os<br /> import time<br /> pwd_time=os.path.getatime(’/etc/passwd’)<br /> print(pwd_time)<br /> print(time.ctime(pwd_time))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/6e0ae9ed63281c76d032851958f3b87b.jpg" alt="python的os模块以及time"><br /> 4\时间戳转换为元组<br /> import os<br /> import time<br /> pwd_time=os.path.getatime(’/etc/passwd’)<br /> print(pwd_time)<br /> print(time.localtime(pwd_time))<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/fc7a8e54244bdbeb408aa7d3615d38a3.jpg" alt="python的os模块以及time"></p> <p>练习1：</p> <p>在当前目录新建目录img, 里面包含多个文件,<br /> 文件名各不相同(X4G5.png)<br /> 将当前img目录所有以.png结尾的后缀名改为.jpg</p> <pre><code class="prism language-python">生成文件：<span class="token keyword">def</span><span class="token function">gen_code</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment"># 随机生成4位验证码</span>     li<span class="token operator">=</span> random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_letters<span class="token operator">+</span>string<span class="token punctuation">.</span>digits<span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">)</span><span class="token keyword">return</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token keyword">def</span><span class="token function">create_file</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment"># 随机生成100个文件名</span>     li<span class="token operator">=</span><span class="token punctuation">{<!-- --></span> gen_code<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">for</span> i<span class="token keyword">in</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">}</span>     os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token keyword">for</span> name<span class="token keyword">in</span> li<span class="token punctuation">:</span>         os<span class="token punctuation">.</span>mknod<span class="token punctuation">(</span><span class="token string">'img/'</span><span class="token operator">+</span> name<span class="token operator">+</span><span class="token string">'.png'</span><span class="token punctuation">)</span> create_file<span class="token punctuation">(</span><span class="token punctuation">)</span>  改后缀名：</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/8f2a3cd634d2323378c81caba639dcb7.jpg" alt="python的os模块以及time"><br /> 应用案例-----系统监控<br /> 需求：<br /> 1.获取当前主机信息 包含操作系统名 主机名 内核版本 硬件架构<br /> 2.获取开机时间和开机时长<br /> 3.获取当前登陆的用户</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os<span class="token keyword">from</span> datetime<span class="token keyword">import</span> datetime<span class="token keyword">import</span> psutil<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'主机信息'</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> info<span class="token operator">=</span> os<span class="token punctuation">.</span>uname<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token triple-quoted-string string">"""    操作系统:%s,    主机名称:%s,    内核版本:%s,    硬件架构:%s     """</span><span class="token operator">%</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>sysname<span class="token punctuation">,</span>info<span class="token punctuation">.</span>nodename<span class="token punctuation">,</span>info<span class="token punctuation">.</span>release<span class="token punctuation">,</span>info<span class="token punctuation">.</span>machine<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'开机信息'</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> boot_time<span class="token operator">=</span> psutil<span class="token punctuation">.</span>boot_time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment"># 返回一个时间戳</span><span class="token comment"># 将时间戳转换为datetime类型的时间</span> boot_time_obj<span class="token operator">=</span> datetime<span class="token punctuation">.</span>fromtimestamp<span class="token punctuation">(</span>boot_time<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>boot_time_obj<span class="token punctuation">)</span> now_time<span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>now_time<span class="token punctuation">)</span> delta_time<span class="token operator">=</span> now_time<span class="token operator">-</span> boot_time_obj<span class="token keyword">print</span><span class="token punctuation">(</span>delta_time<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'开机时间:'</span><span class="token punctuation">,</span>boot_time_obj<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'当前时间:'</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>now_time<span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'开机时长:'</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>delta_time<span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'当前登陆用户'</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> login_user<span class="token operator">=</span> psutil<span class="token punctuation">.</span>users<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>login_user<span class="token punctuation">)</span> info<span class="token operator">=</span> psutil<span class="token punctuation">.</span>users<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>name<span class="token punctuation">)</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/878a786f0b3e49ee70f507779ddd9edf.jpg" alt="python的os模块以及time"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-89126.htm">太原有没有领养宠物的地方（太原有没有领养宠物的地方?）</a></p>
+                                        <p>下一个：<a href="/news/article-89867.htm">十大宠物品牌排行榜图片（十大宠物品牌排行榜图片）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-81954.htm" title="捡猫回家风水有个说法（猫和人的缘分是注定的）">捡猫回家风水有个说法（猫和人的缘分是注定的）</a></li>
+                        <li class="py-2"><a href="/news/article-79885.htm" title="动物医学社会实践日记20篇怎么写（动物医院社会实践报告）">动物医学社会实践日记20篇怎么写（动物医院社会实践报告）</a></li>
+                        <li class="py-2"><a href="/news/article-71102.htm" title="深圳哪有免费领养狗狗的地方（深圳哪有免费领养狗狗的地方啊）">深圳哪有免费领养狗狗的地方（深圳哪有免费领养狗狗的地方啊）</a></li>
+                        <li class="py-2"><a href="/news/article-86968.htm" title="宠物店养猫一个月多少钱 宠物店养猫一个月多少钱啊">宠物店养猫一个月多少钱 宠物店养猫一个月多少钱啊</a></li>
+                        <li class="py-2"><a href="/news/article-68478.htm" title="jpa mysql乐观锁_JPA @Lock(value = LockModeType.PESSIMISTIC_WRITE) 悲观锁防坑">jpa mysql乐观锁_JPA @Lock(value = LockModeType.PESSIMISTIC_WRITE) 悲观锁防坑</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-shadowrocket-node.htm" title="「3月15日」最高速度22.9M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「3月15日」最高速度22.9M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-87698.htm" title="动物疫苗接种的目的是什么 动物疫苗接种的目的是什么呢">动物疫苗接种的目的是什么 动物疫苗接种的目的是什么呢</a></li>
+                        <li class="py-2"><a href="/news/article-79212.htm" title="动物医院申请条件及流程怎么写的好（动物医院营业执照申领需要哪些准备材料）">动物医院申请条件及流程怎么写的好（动物医院营业执照申领需要哪些准备材料）</a></li>
+                        <li class="py-2"><a href="/news/article-79213.htm" title="动物疫苗接种方法有哪些（动物防疫疫苗）">动物疫苗接种方法有哪些（动物防疫疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-74449.htm" title="将eclipse里的springboot项目打包成jar包部署到服务器上">将eclipse里的springboot项目打包成jar包部署到服务器上</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
