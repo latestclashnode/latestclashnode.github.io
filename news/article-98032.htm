@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://latestclashnode.github.io/news/article-98032.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tensorflow迁移学习加载预训练模型并修改变量shape和value的方法</title>
+        <meta name="description" content="迁移学习在深度学习中是经常被使用的方法，指的是在一个任务中预训练的模型被用于另一个任务的模型训练，以加快模型训练，减少资源消耗。 然而网络搜索相关的话题，基本上只涉及加载预训练模型的特定变量值的方法，" />
+        <link rel="icon" href="/assets/website/img/latestclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LatestClashNode最新订阅分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://latestclashnode.github.io/news/article-98032.htm" />
+    <meta property="og:site_name" content="LatestClashNode最新订阅分享站" />
+    <meta property="og:title" content="Tensorflow迁移学习加载预训练模型并修改变量shape和value的方法" />
+    <meta property="og:image" content="https://latestclashnode.github.io/uploads/20240617/ad2a50628fd9ac63b7150b4309adc34a.webp" />
+        <meta property="og:release_date" content="2025-04-17T09:01:26" />
+    <meta property="og:updated_time" content="2025-04-17T09:01:26" />
+        <meta property="og:description" content="迁移学习在深度学习中是经常被使用的方法，指的是在一个任务中预训练的模型被用于另一个任务的模型训练，以加快模型训练，减少资源消耗。 然而网络搜索相关的话题，基本上只涉及加载预训练模型的特定变量值的方法，" />
+        
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Tensorflow迁移学习加载预训练模型并修改变量shape和value的方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/vendor/muli-font.css">
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/aos.min.css">
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/plugins/magnific-popup.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/latestclashnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5M1KX50FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z5M1KX50FV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="page" class="section">
+        <!-- Header Section Start -->
+        <div class="header-section header-transparent sticky-header section">
+            <div class="header-inner">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-6 col-auto">
+                            <div class="header-logo">
+                                <a href="/">
+                                                                <span style="color: #fff;">Latest Clash Node</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+                        <!-- Header Main Menu Start -->
+                        <div class="col-auto col-xl d-flex justify-content-end order-2 order-xl-1">
+                            <div class="menu-column-area d-none d-xl-block position-static">
+                                <nav class="site-main-menu">
+                                    <ul>
+                                                                                <li>
+                                            <a href="/"><span class="menu-text">首页</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/free-nodes/"><span class="menu-text">免费节点</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/paid-subscribe/"><span class="menu-text">推荐机场</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/client.htm"><span class="menu-text">客户端</span></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="/news/"><span class="menu-text">新闻资讯</span></a>
+                                        </li>
+                                                                            </ul>
+                                </nav>
+                            </div>
+
+                            <!-- Header Mobile Menu Toggle Start -->
+                            <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                <button class="toggle">
+                                    <i class="icon-top"></i>
+                                    <i class="icon-middle"></i>
+                                    <i class="icon-bottom"></i>
+                                </button>
+                            </div>
+                            <!-- Header Mobile Menu Toggle End -->
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+        <!-- Page Title Section Start -->
+        <div class="page-title-section section section-padding-top" data-overlay="0.7" data-bg-image="/assets/website/img/latestclashnode/bg/breadcrumb-bg.jpg">
+            <div class="page-title">
+                <div class="container">
+                    <h1 class="title">Tensorflow迁移学习加载预训练模型并修改变量shape和value的方法</h1>
+                </div>
+            </div>
+            <div class="page-breadcrumb position-static">
+                <div class="container">
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li class="current">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Page Title Section End -->
+        <!-- Skill With Video Section Start -->
+        <div class="section section-padding" data-bg-color="#f8faff">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>迁移学习在深度学习中是经常被使用的方法，指的是在一个任务中预训练的模型被用于另一个任务的模型训练，以加快模型训练，减少资源消耗。<br /> 然而网络搜索相关的话题，基本上只涉及加载预训练模型的特定变量值的方法，即不涉及预训练模型某个变量与当前任务网络对应变量shape改变的处理。<br /> 在具体的语音合成多说话人模型迁移学习得到单说话人模型的任务中，就涉及到了迁移变量改变shape的情况，将解决方法如下列出。</p> </blockquote> <div class="toc"> <h3>文章目录</h3> <ul> <li> <ul> <li><a href="#__10" rel="nofollow">一. 问题来源</a></li> <li><a href="#__20" rel="nofollow">二. 相关接口</a></li> <li><a href="#__43" rel="nofollow">三. 解决方法</a></li> </ul> </li> </ul> </div> <h2> <a id="__10" rel="nofollow"></a>一. 问题来源</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp;语音合成多说话人模型迁移学习得到单说话人模型的任务中，涉及了迁移变量改变shape的情况。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp;一个不可避免的是，多说话人模型中由于存在speaker embedding变量，并往往与其他变量拼接作为模块的输入，在单人模型中，speaker embedding不存在，且对应模块内部部分变量的维度也必然改变。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp;另外，在实际处理时发现，由于之前多人建模与单人建模的文本字符输入表symbol list存在差异，导致预训练模型中的char embeddings变量在单人模型中不能直接使用。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp;种种情况，涉及的都是变量shape发生了变化，但是预训练模型中该变量的一部分值仍然可用。我们当然可以直接舍弃该变量已有值，重新训练，但是很多情况下没有必要。通过实践，来讲讲在Tensorflow框架下该问题的解决方法。</p> <h2> <a id="__20" rel="nofollow"></a>二. 相关接口</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp;网络搜索“迁移学习”或者“加载预训练模型”等，能够找到一些方法。比如，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.zhihu.com/question/320608293"  rel="nofollow">tensorflow新模型怎么加载老数据？</a>中，涉及到如下接口：</p> <pre><code class="prism language-[python]">#新网络结构的搭建 ......   #利用预训练模型给新网络变量赋值时，忽略变量v3 restore_variable_list = tf.contrib.framework.get_variables_to_restore(exclude=["v3",])  saver = tf.train.Saver(restore_variable_list) saver.restore(sess, old_checkpoint_path) </code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp;需要注意的是，以上代码调用之前，需要先搭建新的网络结构，而get_variables_to_restore就是列出了新网络中的所有变量，变量是tf.Variable类型，这时候还没有加载预训练模型中的值。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp;而在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/jiongnima/article/details/86632517"  rel="nofollow">干货！如何修改在TensorFlow框架下训练保存的模型参数名称</a>中，涉及如下接口：</p> <pre><code class="prism language-[python]">#得到预训练模型中所有的参数（名字，形状）元组 for var_name, var_shape in tf.train.list_variables(old_checkpoint_path):  		#得到上述参数的值         var = tf.train.load_variable(old_checkpoint_path, var_name)  </code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp;与前一例子相比，本例代码不需要先搭建新的网络结构，直接从预训练模型中遍历所有变量，取得其名称、形状和值。注意var也就是值，是numpy.array格式的。本例链接中提到，可以通过tf.Variable(var)修改变量值后重新构建变量，但是在实际应用中，在我们已经构建好了新的网络结构之后，再通过tf.Variable构建的是新的变量了，即使手动赋予变量相同的名字。</p> <h2> <a id="__43" rel="nofollow"></a>三. 解决方法</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp;首先确立问题的前提，我们有了一个预训练模型，并且构建了新的网络结构，但是该网络某个变量与预训练模型中的变量shape不一致。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp;我们假定这两个变量同名，如char_embeddings，并且预训练模型中该变量shape为[30, 128]，表示支持30个字符[a-z, @, #, %, &amp;]输入，每个字符用128维表示。新的网络中我们只支持29个字符[a-z, @, #, %]，这样新网络中，变量char_embeddings的shape为[29, 128]，此时，加载预训练模型，同名变量赋值显然会报错。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp;在实际操作时，我们首先通过（二）中的两类接口，获取两个网络结构不一致变量的完整名称及其shape。注意此时可以观察到，每个变量对应的两个变量char_embeddings/Adam和char_embeddings/Adam_1的shape也有相同的差异，这些变量也需要对应修改。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp;然后通过上述list_variable和load_variable接口获取预训练模型特定接口的值，并进行修改，本例中使用var=var[:-1, :]就可以从原[30,128]中获取前29个字符的预训练值，临时保存。然后在新的网络结构搭建好之后，调用get_variables_to_restore获取当前网络的所有变量，像上例一中一样，忽略待修改变量以便在后续操作中restore其他变量。而待修改变量，通过tf.convert_to_tensor及tf.assign操作，将临时保存的修改值赋予当前网络对应变量，在restore操作后通过session.run进行实际赋值。详细代码如下：</p> <pre><code class="prism language-[python]">#保存待修改变量名与修改后的变量值 map_name_newval = {} for var_name, var_shape in tf.train.list_variables(old_checkpoint_path):  		if var_name.find('char_embeddings'):         		var = tf.train.load_variable(old_checkpoint_path, var_name)          		map_name_newval[val_name] = var[:-1, :] #修改值  #当前网络结构区分直接恢复预训练值的变量与修改变量 var_list = tf.contrib.framework.get_variables_to_restore()  restore_var_list = [] map_vname_op = {} for v in var_list: 		v_name = v.name.split(':')[0] #两种方式取得的模型名称有一点差异 		if v_name in map_name_newval: 				new_val = tf.convert_to_tensor(map_name_newval[v_name]) 				v_assign = tf.assign(v, new_val) #给当前网络中的特定变量赋新值操作 				map_vname_op[v.name] = v_assign 		else: 				restore_val_list.append(v)  #实际变量赋值操作 with tf.Session() as sess: 		saver = tf.train.Saver(val_list=restore_variable_list) 		saver.restore(sess, old_checkpoint_path) 		for vname, op in map_vname_op.items(): 				sess.run(op) </code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp;本例中修改值比较简单，但是无论如何修改，整体的思路和流程都是一样的。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-97287.htm">动物疫苗的种类有哪些名称图片及价格 动物疫苗的种类有哪些名称图片及价格表</a></p>
+                                        <p>下一个：<a href="/news/article-98033.htm">学宠物美容师怎么样,有前景吗（学宠物美容有前途吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-free-node-subscribe.htm" title="「4月7日」最高速度19M/S，2025年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐">「4月7日」最高速度19M/S，2025年Clash/V2ray/SSR/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-node-subscribe-links.htm" title="「3月18日」最高速度18.8M/S，2025年V2ray/Clash/SSR/Shadowrocket免费节点订阅链接，高速机场推荐">「3月18日」最高速度18.8M/S，2025年V2ray/Clash/SSR/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-87698.htm" title="动物疫苗接种的目的是什么 动物疫苗接种的目的是什么呢">动物疫苗接种的目的是什么 动物疫苗接种的目的是什么呢</a></li>
+                        <li class="py-2"><a href="/news/article-86968.htm" title="宠物店养猫一个月多少钱 宠物店养猫一个月多少钱啊">宠物店养猫一个月多少钱 宠物店养猫一个月多少钱啊</a></li>
+                        <li class="py-2"><a href="/news/article-74449.htm" title="将eclipse里的springboot项目打包成jar包部署到服务器上">将eclipse里的springboot项目打包成jar包部署到服务器上</a></li>
+                        <li class="py-2"><a href="/news/article-84085.htm" title="搭建vue3.0+Element Plus项目">搭建vue3.0+Element Plus项目</a></li>
+                        <li class="py-2"><a href="/news/article-71765.htm" title="哈尔滨农大宠物医院电话号码（哈尔滨农大兽医院）">哈尔滨农大宠物医院电话号码（哈尔滨农大兽医院）</a></li>
+                        <li class="py-2"><a href="/news/article-71763.htm" title="Java：封装与继承">Java：封装与继承</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-shadowrocket-node.htm" title="「3月15日」最高速度22.9M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐">「3月15日」最高速度22.9M/S，2025年SSR/Clash/V2ray/Shadowrocket免费节点订阅链接，高速机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-85527.htm" title="C++的命名空间">C++的命名空间</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Skill With Video Section End -->
+        <div class="footer-section section" data-bg-color="#030e22">
+            <div class="container">
+                <!-- Footer Copyright Start -->
+                <div class="row">
+                    <div class="col">
+                        <p class="copyright">
+                            LatestClashNode最新订阅分享站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+            </div>
+        </div>
+        <!-- Scroll Top Start -->
+        <a href="#" class="scroll-top" id="scroll-top">
+            <i class="arrow-top fal fa-long-arrow-up"></i>
+            <i class="arrow-bottom fal fa-long-arrow-up"></i>
+        </a>
+        <!-- Scroll Top End -->
+    </div>
+        <div id="site-main-mobile-menu" class="site-main-mobile-menu">
+        <div class="site-main-mobile-menu-inner">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <a href="/"><img src="/assets/website/img/latestclashnode/logo/light-logo.png" alt=""></a>
+                </div>
+                <div class="mobile-menu-close">
+                    <button class="toggle">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-content">
+                <nav class="site-mobile-menu">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- JS
+============================================ -->
+    <!-- Vendors JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-3.4.1.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/svg-inject.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/swiper.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vanilla-tilt.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/vivus.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/plugins/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/latestclashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
